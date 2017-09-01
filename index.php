@@ -14,33 +14,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="app.js"></script>
+    <?php
+        include 'datalogin.php';
+    ?>
 </head>
 <body>
-<?php
-    $con = mysql_connect("localhost","root","");
-    if (!$con)
-    {
-        die('Could not connect: ' . mysql_error());
-    }
-
-    $db_select = mysql_select_db("calculator", $con);
-    if (!$db_select) {
-        die("Database selection also failed miserably: " . mysql_error());
-    }
-
-    if($_POST){
-        if(isset($_POST['spend1']) && isset($_POST['spend2']) && isset($_POST['spend3'])){
-        $sql="INSERT INTO cost (costs_type, to_spend_where, to_spend_what, to_spend_price)
-            VALUES
-            ('$_POST[coststype]','$_POST[spend1]','$_POST[spend2]','$_POST[spend3]')";
-            if (!mysql_query($sql,$con))
-            {
-                die('Error: ' . mysql_error());
-            }
-        }
-        //mysql_close($con);
-    }
-?>
     <header>
         <!--<h1>Havi Költségkalkulátor</h1>-->
     </header>
@@ -79,18 +57,17 @@
                 <h3><i class="fa fa-line-chart" aria-hidden="true"></i>Kiadás típusa</h3>
                 <div class="release-type">
                     <?php
-                    $results = mysql_query("SELECT costs_type, to_spend_price FROM cost");
+                    $results = dataResults('costs_type, to_spend_price', 'cost', $con);
                     $index = 0;
                     $coType = array();
-                    while($row = mysql_fetch_array($results)){
+                    while($row = mysqli_fetch_array($results)){
                         $coType[$index] = $row['costs_type'];
                         $index++;
                         ?>
 
                         <p class="data-price" data-price="<?php echo $row['to_spend_price']; ?>"><?php  echo $row['costs_type']; ?></p>
 
-                    <?php } ?>
-                        <?php
+                    <?php } 
                         $food = array();
                         $fuel = array();
                         $apartment = array();
@@ -166,8 +143,6 @@
                         </p>
                     <?php
                         }
-                    ?>
-                    <?php
                     if(!empty($other)) {
                         ?>
                         <p class="final-border">
@@ -188,10 +163,9 @@
                 <h3><i class="fa fa-university" aria-hidden="true"></i>Hol</h3>
                 <div>
                 <?php
-                    $results = mysql_query("SELECT to_spend_where FROM cost");
-                    while($row = mysql_fetch_array($results)){
+                    $results = dataResults('to_spend_where', 'cost', $con);
+                    while($row = mysqli_fetch_array($results)){
                 ?>
-
                     <p><?php  echo $row['to_spend_where']; ?></p>
 
                 <?php } ?>
@@ -201,8 +175,8 @@
                 <h3><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mire</h3>
                 <div>
                 <?php
-                    $results = mysql_query("SELECT to_spend_what FROM cost");
-                    while($row = mysql_fetch_array($results)){
+                    $results = dataResults('to_spend_what', 'cost', $con);
+                    while($row = mysqli_fetch_array($results)){
                 ?>
                     <p><?php  echo $row['to_spend_what']; ?></p>
                 <?php } ?>
@@ -213,14 +187,13 @@
                 <div>
                 <?php
                     $subtotal = 0;
-                    $results = mysql_query("SELECT to_spend_price FROM cost");
-                    while($row = mysql_fetch_array($results)){
+                    $results = dataResults('to_spend_price', 'cost', $con);
+                    while($row = mysqli_fetch_array($results)){
                 ?>
                     <p><?php  echo $row['to_spend_price'] . ' Ft'; ?></p>
                 <?php
                     $subtotal += $row['to_spend_price'];
                     }
-                    //mysql_close($con);
                 ?>
                 <p><?php  echo 'Összesen: ' . $subtotal . ' Ft'; ?></p>
 
@@ -230,80 +203,81 @@
                 <script>
                     //Cake diagramm
                     $(document).ready(function(){
-                    var allSpended = '<?php echo $subtotal; ?>'
+                        var allSpended = '<?php echo $subtotal; ?>'
 
-                    var release_type = $('.data-price').map(function() {
-                        return $(this);
-                    }).get();
+                        var release_type = $('.data-price').map(function() {
+                            return $(this);
+                        }).get();
 
-                    var foodPrices = 0
-                    var fuelPrices = 0
-                    var housePrices = 0
-                    var luxPrices = 0
-                    var somePrices = 0
+                        var foodPrices = 0
+                        var fuelPrices = 0
+                        var housePrices = 0
+                        var luxPrices = 0
+                        var somePrices = 0
 
 
-                    for(var i=0; i<release_type.length; i++){
-                        if(release_type[i].text() == 'Étel'){
-                            foodPrices += parseInt(release_type[i].attr('data-price'))
+                        for(var i=0; i<release_type.length; i++){
+                            if(release_type[i].text() == 'Étel'){
+                                foodPrices += parseInt(release_type[i].attr('data-price'))
+                            }
+                            if(release_type[i].text() == 'Üzemanyag'){
+                                fuelPrices += parseInt(release_type[i].attr('data-price'))
+                            }
+                            if(release_type[i].text() == 'Albérlet/Rezsi'){
+                                housePrices += parseInt(release_type[i].attr('data-price'))
+                            }
+                            if(release_type[i].text() == 'Luxus'){
+                                luxPrices += parseInt(release_type[i].attr('data-price'))
+                            }
+                            if(release_type[i].text() == 'Egyéb/Nem várt'){
+                                somePrices += parseInt(release_type[i].attr('data-price'))
+                            }
                         }
-                        if(release_type[i].text() == 'Üzemanyag'){
-                            fuelPrices += parseInt(release_type[i].attr('data-price'))
-                        }
-                        if(release_type[i].text() == 'Albérlet/Rezsi'){
-                            housePrices += parseInt(release_type[i].attr('data-price'))
-                        }
-                        if(release_type[i].text() == 'Luxus'){
-                            luxPrices += parseInt(release_type[i].attr('data-price'))
-                        }
-                        if(release_type[i].text() == 'Egyéb/Nem várt'){
-                            somePrices += parseInt(release_type[i].attr('data-price'))
-                        }
-                    }
-                    $('.final-border-box .food').text(foodPrices + ' Ft')
-                    $('.final-border-box .fuel').text(fuelPrices + ' Ft')
-                    $('.final-border-box .apartment').text(housePrices + ' Ft')
-                    $('.final-border-box .lux').text(luxPrices + ' Ft')
-                    $('.final-border-box .other').text(somePrices + ' Ft')
-                    var morePriceArray = []
-                    var foodPercent = foodPrices/allSpended*100
-                    var fuelPercent = fuelPrices/allSpended*100
-                    var housePercent = housePrices/allSpended*100
-                    var luxPercent = luxPrices/allSpended*100
-                    var somePercent = somePrices/allSpended*100
+                        $('.final-border-box .food').text(foodPrices + ' Ft')
+                        $('.final-border-box .fuel').text(fuelPrices + ' Ft')
+                        $('.final-border-box .apartment').text(housePrices + ' Ft')
+                        $('.final-border-box .lux').text(luxPrices + ' Ft')
+                        $('.final-border-box .other').text(somePrices + ' Ft')
+                        var morePriceArray = []
+                        var foodPercent = foodPrices/allSpended*100
+                        var fuelPercent = fuelPrices/allSpended*100
+                        var housePercent = housePrices/allSpended*100
+                        var luxPercent = luxPrices/allSpended*100
+                        var somePercent = somePrices/allSpended*100
 
-                    morePriceArray.push(foodPercent,fuelPercent,housePercent,luxPercent,somePercent)
-                    var morePrice = Math.max.apply( Math, morePrice )
+                        morePriceArray.push(foodPercent,fuelPercent,housePercent,luxPercent,somePercent)
+                        var morePrice = Math.max.apply( Math, morePrice )
 
-                    var chart = new CanvasJS.Chart("chartContainer",
-                        {
-                            title:{
-                                text: "Havi kiadások eddigi alakulása"
-                            },
-                            exportFileName: "Pie Chart",
-                            exportEnabled: true,
-                            animationEnabled: true,
-                            legend:{
-                                verticalAlign: "bottom",
-                                horizontalAlign: "center"
-                            },
-                            data: [
-                                {
-                                    type: "pie",
-                                    showInLegend: true,
-                                    toolTipContent: "{name}: <strong>{y}%</strong>",
-                                    indexLabel: "{name} {y}%",
-                                    dataPoints: [
-                                        {  y: foodPercent.toFixed(2), name: "Étel", exploded: true},
-                                        {  y: fuelPercent.toFixed(2), name: "Üzemanyag"},
-                                        {  y: housePercent.toFixed(2), name: "Albérlet/Rezsi"},
-                                        {  y: luxPercent.toFixed(2), name: "Luxus"},
-                                        {  y: somePercent.toFixed(2),  name: "Egyéb/Nem várt"}
-                                    ]
-                                }
-                            ]
-                        });
-                    chart.render();
+                        var chart = new CanvasJS.Chart("chartContainer",
+                            {
+                                title:{
+                                    text: "Havi kiadások eddigi alakulása"
+                                },
+                                backgroundColor: "transparent",
+                                exportFileName: "Pie Chart",
+                                exportEnabled: true,
+                                animationEnabled: true,
+                                legend:{
+                                    verticalAlign: "bottom",
+                                    horizontalAlign: "center"
+                                },
+                                data: [
+                                    {
+                                        type: "pie",
+                                        showInLegend: false,
+                                        toolTipContent: "{name}: <strong>{y}%</strong>",
+                                        indexLabel: "{name} {y}%",
+                                        dataPoints: [
+                                            {  y: foodPercent.toFixed(2), name: "Étel", exploded: true},
+                                            {  y: fuelPercent.toFixed(2), name: "Üzemanyag"},
+                                            {  y: housePercent.toFixed(2), name: "Albérlet/Rezsi"},
+                                            {  y: luxPercent.toFixed(2), name: "Luxus"},
+                                            {  y: somePercent.toFixed(2),  name: "Egyéb/Nem várt"}
+                                        ]
+                                    }
+                                ]
+                            });
+                        chart.render();
                     })
                 </script>
                 </div>
@@ -314,12 +288,15 @@
     <?php
         if($_POST){
             if(isset($_POST['deleteAll'])){
-                mysql_query( "DELETE FROM cost" );
+                delDatabase('cost', $con);
             }
         }
     ?>
     <form method="post">
         <input type="submit" name="deleteAll" class="deleteBtn" value="DB Töröl">
     </form>
+    <?php
+        mysqli_close($con);
+    ?>
 </body>
 </html>
