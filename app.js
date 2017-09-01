@@ -53,4 +53,9 @@ $(document).ready(function(){
             $('.coststype').append(subtotal)
         }
     })
+
+    //Left side box opened
+    $('.left-box-btn').on('click', function(){
+        $('.fix-hide').toggleClass('show')
+    })
 })

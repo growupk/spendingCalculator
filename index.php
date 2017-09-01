@@ -19,9 +19,28 @@
     ?>
 </head>
 <body>
-    <header>
-        <!--<h1>Havi Költségkalkulátor</h1>-->
-    </header>
+    <!--<header>
+        <h1>Havi Költségkalkulátor</h1>
+    </header>-->
+    <div class="total-cash">
+        <div class="left-box-btn"><i class="fa fa-money" aria-hidden="true"></i></div>
+        <div class="fix-hide">    
+            <form method="post">
+                <input type="number" name="total" class="totals">
+                <input type="submit" class="totalSendBtn" value="+ Tárcához">
+            </form>
+            <div class="count">
+                <?php
+                    $results = dataResults('total_money', 'gate_money', $con);
+                    while($row = mysqli_fetch_array($results)){
+                        ?>
+                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo $row['total_money']; ?> Ft</span>
+                        <?php
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid questionBox">
         <form method="post">
             <div class="row">
