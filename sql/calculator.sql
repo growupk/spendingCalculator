@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2017. Aug 31. 21:37
--- Kiszolgáló verziója: 10.1.16-MariaDB
--- PHP verzió: 5.6.24
+-- Létrehozás ideje: 2017. Sze 01. 14:21
+-- Kiszolgáló verziója: 10.1.23-MariaDB
+-- PHP verzió: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -40,26 +40,52 @@ CREATE TABLE `cost` (
 --
 
 INSERT INTO `cost` (`id`, `to_spend_where`, `to_spend_what`, `to_spend_price`, `buy_date`, `costs_type`) VALUES
-(844, 'itt', 'arra', 100, '2017-08-27 00:51:46', 'Ã‰tel'),
-(845, 'asd', 'asd', 124, '2017-08-27 00:52:10', 'Ãœzemanyag'),
-(846, 'asd', 'asd', 450, '2017-08-27 00:52:27', 'AlbÃ©rlet/Rezsi'),
-(847, 'asd', 'asd', 450, '2017-08-27 01:19:26', 'AlbÃ©rlet/Rezsi'),
-(848, 'asd', 'asd', 450, '2017-08-27 01:20:46', 'AlbÃ©rlet/Rezsi'),
-(849, 'sd', 'dfdf', 1, '2017-08-27 01:21:30', 'Ãœzemanyag'),
-(850, 'sd', 'dfdf', 1, '2017-08-27 01:24:20', 'Ãœzemanyag'),
-(851, 'sd', 'dfdf', 1, '2017-08-27 01:24:59', 'Ãœzemanyag'),
-(852, 'sd', 'dfdf', 1, '2017-08-27 01:27:50', 'Ãœzemanyag'),
-(853, 'sd', 'dfdf', 1, '2017-08-27 01:29:17', 'Ãœzemanyag'),
-(854, 'sd', 'dfdf', 1, '2017-08-27 01:31:35', 'Ãœzemanyag'),
-(855, 'sda', 'ad', 3000, '2017-08-27 01:32:05', 'Luxus'),
-(856, 'af ', 'df ', 650, '2017-08-27 01:32:29', 'EgyÃ©b/Nem vÃ¡rt'),
-(857, 'af ', 'df ', 650, '2017-08-27 01:40:38', 'EgyÃ©b/Nem vÃ¡rt'),
-(858, 'af ', 'df ', 650, '2017-08-27 01:45:37', 'EgyÃ©b/Nem vÃ¡rt'),
-(859, 'af ', 'df ', 650, '2017-08-27 01:50:15', 'EgyÃ©b/Nem vÃ¡rt'),
-(860, 'af ', 'df ', 650, '2017-08-27 01:51:32', 'EgyÃ©b/Nem vÃ¡rt'),
-(861, 'af ', 'df ', 650, '2017-08-27 01:51:58', 'EgyÃ©b/Nem vÃ¡rt'),
-(862, 'af ', 'df ', 650, '2017-08-27 01:56:35', 'EgyÃ©b/Nem vÃ¡rt'),
-(863, 'af ', 'df ', 650, '2017-08-28 17:22:59', 'EgyÃ©b/Nem vÃ¡rt');
+(1016, 'asd', 'asd', 30, '2017-09-01 12:46:21', 'Ã‰tel'),
+(1017, 'sd', '213', 50, '2017-09-01 12:46:29', 'EgyÃ©b/Nem vÃ¡rt'),
+(1018, 'sd', '213', 50, '2017-09-01 12:53:00', 'EgyÃ©b/Nem vÃ¡rt'),
+(1019, 'sd', '213', 50, '2017-09-01 12:54:38', 'EgyÃ©b/Nem vÃ¡rt'),
+(1020, 'sd', '213', 50, '2017-09-01 12:54:47', 'EgyÃ©b/Nem vÃ¡rt'),
+(1021, 'sd', '213', 50, '2017-09-01 12:55:25', 'EgyÃ©b/Nem vÃ¡rt'),
+(1022, 'sd', '213', 50, '2017-09-01 12:55:30', 'EgyÃ©b/Nem vÃ¡rt'),
+(1023, 'sd', '213', 50, '2017-09-01 12:55:43', 'EgyÃ©b/Nem vÃ¡rt'),
+(1024, 'sd', '213', 50, '2017-09-01 12:55:50', 'EgyÃ©b/Nem vÃ¡rt'),
+(1025, 'sd', '213', 50, '2017-09-01 12:55:57', 'EgyÃ©b/Nem vÃ¡rt'),
+(1026, 'sd', '213', 50, '2017-09-01 12:56:31', 'EgyÃ©b/Nem vÃ¡rt'),
+(1027, 'sd', '213', 50, '2017-09-01 12:56:39', 'EgyÃ©b/Nem vÃ¡rt'),
+(1028, 'sd', '213', 50, '2017-09-01 12:57:23', 'EgyÃ©b/Nem vÃ¡rt'),
+(1029, 'sd', '213', 50, '2017-09-01 12:58:49', 'EgyÃ©b/Nem vÃ¡rt'),
+(1030, 'sd', '213', 50, '2017-09-01 12:59:10', 'EgyÃ©b/Nem vÃ¡rt'),
+(1031, 'sd', '213', 50, '2017-09-01 12:59:14', 'EgyÃ©b/Nem vÃ¡rt'),
+(1032, 'sd', '213', 50, '2017-09-01 12:59:38', 'EgyÃ©b/Nem vÃ¡rt'),
+(1033, 'sd', '213', 50, '2017-09-01 13:00:17', 'EgyÃ©b/Nem vÃ¡rt'),
+(1034, 'sd', '213', 50, '2017-09-01 13:19:43', 'EgyÃ©b/Nem vÃ¡rt'),
+(1035, 'sd', '213', 50, '2017-09-01 13:43:37', 'EgyÃ©b/Nem vÃ¡rt'),
+(1036, 'sd', '213', 50, '2017-09-01 13:44:09', 'EgyÃ©b/Nem vÃ¡rt'),
+(1037, 'asd', 'asd', 12312123, '2017-09-01 14:04:50', 'Ã‰tel'),
+(1038, 'asd', 'asd', 12312123, '2017-09-01 14:07:22', 'Ã‰tel'),
+(1039, 'asd', 'asd', 12312123, '2017-09-01 14:09:12', 'Ã‰tel'),
+(1040, '123', '123', 123, '2017-09-01 14:09:20', 'Ãœzemanyag'),
+(1041, '123', '123', 123, '2017-09-01 14:10:23', 'Ãœzemanyag');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `gate_money`
+--
+
+CREATE TABLE `gate_money` (
+  `id` int(255) NOT NULL,
+  `total_money` int(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `next_money` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `gate_money`
+--
+
+INSERT INTO `gate_money` (`id`, `total_money`, `date`, `next_money`) VALUES
+(16, 1000, '2017-09-01 14:21:05', NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -72,6 +98,12 @@ ALTER TABLE `cost`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `gate_money`
+--
+ALTER TABLE `gate_money`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -79,7 +111,12 @@ ALTER TABLE `cost`
 -- AUTO_INCREMENT a táblához `cost`
 --
 ALTER TABLE `cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=864;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1042;
+--
+-- AUTO_INCREMENT a táblához `gate_money`
+--
+ALTER TABLE `gate_money`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
