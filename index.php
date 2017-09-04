@@ -19,9 +19,9 @@
     ?>
 </head>
 <body>
-    <!--<header>
-        <h1>Havi Költségkalkulátor</h1>
-    </header>-->
+    <header>
+        <!--<h1>Havi Költségkalkulátor</h1>-->
+    </header>
     <div class="total-cash">
         <div class="left-box-btn">
             <i class="fa fa-money" aria-hidden="true"></i>
@@ -219,12 +219,12 @@
                     $results = dataResults('to_spend_price', 'cost', $con);
                     while($row = mysqli_fetch_array($results)){
                 ?>
-                    <p><?php  echo $row['to_spend_price'] . ' Ft'; ?></p>
+                    <p><?php  echo number_format($row['to_spend_price']) . ' Ft'; ?></p>
                 <?php
                     $subtotal += $row['to_spend_price'];
                     }
                 ?>
-                <p><?php  echo 'Összesen: ' . $subtotal . ' Ft'; ?></p>
+                <p><?php  echo 'Összesen: ' . number_format($subtotal) . ' Ft'; ?></p>
 
                 <?php
                     $subtotalPercent = $subtotal/100;
@@ -321,9 +321,9 @@
             }
         }
     ?>
-    <form method="post">
+    <!--<form method="post">
         <input type="submit" name="deleteAll" class="deleteBtn" value="DB Töröl">
-    </form>
+    </form>-->
     <?php
         mysqli_close($con);
     ?>
