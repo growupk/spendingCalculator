@@ -8,8 +8,7 @@
     if (mysqli_connect_errno()){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-    global $allCosts;
-    $allCosts = mysqli_query($con,"Select SUM(to_spend_price) FROM cost");
+
     if($_POST){
 
         //Total money
@@ -20,6 +19,17 @@
             $value = mysqli_fetch_object($result);
             
             $sql="UPDATE gate_money SET total_money = $_POST[total] + $value->total_money";
+            if (!mysqli_query($con,$sql))
+            {
+                die('Error: Total money mysql error... :( ' . mysql_error());
+            }
+            
+            $sqlOr = "SELECT next_money FROM gate_money";
+            
+            $result = mysqli_query($con ,$sqlOr);
+            $value = mysqli_fetch_object($result);
+            
+            $sql="UPDATE gate_money SET next_money = $_POST[total] + $value->next_money";
             if (!mysqli_query($con,$sql))
             {
                 die('Error: Total money mysql error... :( ' . mysql_error());
@@ -35,9 +45,29 @@
             {
                 die('Error: Spending costs error... :(' . mysql_error());
             }
+            subtraction($con);
         }
     }
-    
+
+    function subtraction($con){
+        $allCosts = mysqli_query($con,"SELECT SUM(to_spend_price) FROM cost");
+        $costsValue = mysqli_fetch_array($allCosts);
+        $intCostsV = (int)$costsValue['SUM(to_spend_price)'];
+
+        $sqlOr = "SELECT total_money FROM gate_money";
+        $result = mysqli_query($con ,$sqlOr);
+        $value = mysqli_fetch_object($result);
+        $intV = (int)$value->total_money;
+
+        $subtraction = $intV - $intCostsV;
+
+        $sql="UPDATE gate_money SET next_money = $subtraction";
+        if (!mysqli_query($con,$sql))
+        {
+            die('Error: Total money mysql error... :( ' . mysql_error());
+        }
+    }
+
     function dataResults($select, $from, $con){
         $results = mysqli_query($con,"SELECT $select FROM $from");
         return $results;

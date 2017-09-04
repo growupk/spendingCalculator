@@ -168,22 +168,25 @@ p.final-border {
 }
 .total-cash {
   position: fixed;
-  margin-left: 15px;
   text-align: center;
   top: 81px;
   z-index: 2;
 }
 .total-cash .left-box-btn {
   cursor: pointer;
-  width: 50px;
+  width: 160px;
   margin-bottom: 10px;
   font-size: 25px;
-  border-radius: 50%;
+  border-radius: 0px 50px 50px 0px;
   color: #8ce469;
   background-color: #fff;
   -webkit-box-shadow: 5px 3px 6px #464646;
           box-shadow: 5px 3px 6px #464646;
-  padding: 5px 10px;
+  padding: 2px 0px;
+}
+.total-cash .left-box-btn .next-money {
+  color: #e04444;
+  letter-spacing: -1px;
 }
 .total-cash .fix-hide {
   opacity: 0;

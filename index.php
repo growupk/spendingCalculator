@@ -23,7 +23,17 @@
         <h1>Havi Költségkalkulátor</h1>
     </header>-->
     <div class="total-cash">
-        <div class="left-box-btn"><i class="fa fa-money" aria-hidden="true"></i></div>
+        <div class="left-box-btn">
+            <i class="fa fa-money" aria-hidden="true"></i>
+            <?php
+                $results = dataResults('next_money', 'gate_money', $con);
+                while($row = mysqli_fetch_array($results)){
+                    ?>
+                    <span class="next-money"><?php echo  number_format($row['next_money']); ?> Ft</span>
+                    <?php
+                }
+            ?>
+        </div>
         <div class="fix-hide">
             <form method="post">
                 <input type="number" name="total" class="totals">
@@ -31,14 +41,10 @@
             </form>
             <div class="count">
                 <?php
-                    $results = $allCosts;
-                    while($row = mysqli_fetch_array($results)) {
-                        $allCosts = $row['SUM(to_spend_price)'];
-                    }
-                    $results = dataResults('total_money', 'gate_money', $con);
+                    $results = dataResults('next_money', 'gate_money', $con);
                     while($row = mysqli_fetch_array($results)){
                         ?>
-                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo $row['total_money'] - $allCosts; ?> Ft</span>
+                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo number_format($row['next_money']); ?> Ft</span>
                         <?php
                     }
                 ?>
