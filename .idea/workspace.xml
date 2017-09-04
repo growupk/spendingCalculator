@@ -25,30 +25,26 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.85617596">
-              <caret line="269" column="63" selection-start-line="269" selection-start-column="63" selection-end-line="269" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.6032258">
+              <caret line="40" column="118" selection-start-line="40" selection-start-column="118" selection-end-line="40" selection-end-column="118" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datalogin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datalogin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1503791515945" expanded="true" signature="1803:1894" placeholder="INSERT INTO cost..." />
-                <marker date="1503791515945" expanded="true" signature="1894:1997" placeholder="INSERT INTO cost..." />
-                <marker date="1503791515945" expanded="true" signature="4163:4206" placeholder="SELECT costs..cost..." />
-                <marker date="1503791515945" expanded="true" signature="6729:6831" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="7109:7215" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="7485:7583" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="7914:8020" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="8498:8825" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="8600:8825" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="8668:8699" placeholder="SELECT to_sp..cost..." />
-                <marker date="1503791515945" expanded="true" signature="8996:9327" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="9104:9327" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="9172:9202" placeholder="SELECT to_sp..cost..." />
-                <marker date="1503791515945" expanded="true" signature="9495:9853" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="9594:9853" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="9697:9728" placeholder="SELECT to_sp..cost..." />
-                <marker date="1503791515945" expanded="true" signature="10240:10364" placeholder="..." />
-                <marker date="1503791515945" expanded="true" signature="10326:10364" placeholder="{...}" />
-                <marker date="1503791515945" expanded="true" signature="14504:14520" placeholder="DELETE FROM ..." />
-                <marker date="1503791515945" expanded="true" signature="14560:14674" placeholder="..." />
+                <marker date="1504364882554" expanded="true" signature="311:347" placeholder="Select SUM(t..cost..." />
+                <marker date="1504364882554" expanded="true" signature="448:482" placeholder="SELECT total..gate_money..." />
+                <marker date="1504364882554" expanded="true" signature="630:682" placeholder="UPDATE gate_..." />
+                <marker date="1504364882554" expanded="true" signature="630:701" placeholder="UPDATE gate_..." />
+                <marker date="1504364882554" expanded="true" signature="992:1172" placeholder="INSERT INTO cost..." />
+                <marker date="1504364882554" expanded="true" signature="1426:1446" placeholder="SELECT ${$se..${$from}..." />
+                <marker date="1504364882554" expanded="true" signature="1554:1566" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
@@ -67,7 +63,7 @@
       <file leaf-file-name="calculator.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calculator.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.576923">
+            <state vertical-scroll-proportion="0.0">
               <caret line="149" column="27" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="27" />
               <folding />
             </state>
@@ -84,6 +80,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -92,6 +91,7 @@
         <option value="C:/Andris/Programozas/test.html" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/calculator.less" />
+        <option value="$PROJECT_DIR$/datalogin.php" />
         <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
@@ -152,7 +152,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mounth-spending-calculator" />
+              <option name="myItemId" value="mouth-spending-calculator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -251,30 +251,32 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculator.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="27" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1503791515945" expanded="true" signature="1803:1894" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="1894:1997" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="4163:4206" placeholder="SELECT costs..cost..." />
-            <marker date="1503791515945" expanded="true" signature="6729:6831" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7109:7215" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7485:7583" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7914:8020" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8498:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8600:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8668:8699" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="8996:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9104:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9172:9202" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="9495:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9594:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9697:9728" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="10240:10364" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="10326:10364" placeholder="{...}" />
-            <marker date="1503791515945" expanded="true" signature="14504:14520" placeholder="DELETE FROM ..." />
-            <marker date="1503791515945" expanded="true" signature="14560:14674" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -298,7 +300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="881" column="30" selection-start-line="881" selection-start-column="30" selection-end-line="881" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -306,29 +307,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1503791515945" expanded="true" signature="1803:1894" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="1894:1997" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="4163:4206" placeholder="SELECT costs..cost..." />
-            <marker date="1503791515945" expanded="true" signature="6729:6831" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7109:7215" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7485:7583" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7914:8020" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8498:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8600:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8668:8699" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="8996:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9104:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9172:9202" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="9495:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9594:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9697:9728" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="10240:10364" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="10326:10364" placeholder="{...}" />
-            <marker date="1503791515945" expanded="true" signature="14504:14520" placeholder="DELETE FROM ..." />
-            <marker date="1503791515945" expanded="true" signature="14560:14674" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -352,7 +331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="881" column="30" selection-start-line="881" selection-start-column="30" selection-end-line="881" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -360,29 +338,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1503791515945" expanded="true" signature="1803:1894" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="1894:1997" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="4163:4206" placeholder="SELECT costs..cost..." />
-            <marker date="1503791515945" expanded="true" signature="6729:6831" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7109:7215" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7485:7583" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7914:8020" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8498:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8600:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8668:8699" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="8996:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9104:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9172:9202" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="9495:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9594:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9697:9728" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="10240:10364" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="10326:10364" placeholder="{...}" />
-            <marker date="1503791515945" expanded="true" signature="14504:14520" placeholder="DELETE FROM ..." />
-            <marker date="1503791515945" expanded="true" signature="14560:14674" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -406,7 +362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5354839">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -414,13 +369,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.8532257">
           <caret line="881" column="30" selection-start-line="881" selection-start-column="30" selection-end-line="881" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calculator.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.576923">
+        <state vertical-scroll-proportion="0.0">
           <caret line="149" column="27" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="27" />
           <folding />
         </state>
@@ -434,33 +388,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/datalogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <marker date="1504364882554" expanded="true" signature="311:347" placeholder="Select SUM(t..cost..." />
+            <marker date="1504364882554" expanded="true" signature="448:482" placeholder="SELECT total..gate_money..." />
+            <marker date="1504364882554" expanded="true" signature="630:682" placeholder="UPDATE gate_..." />
+            <marker date="1504364882554" expanded="true" signature="630:701" placeholder="UPDATE gate_..." />
+            <marker date="1504364882554" expanded="true" signature="992:1172" placeholder="INSERT INTO cost..." />
+            <marker date="1504364882554" expanded="true" signature="1426:1446" placeholder="SELECT ${$se..${$from}..." />
+            <marker date="1504364882554" expanded="true" signature="1554:1566" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85617596">
-          <caret line="269" column="63" selection-start-line="269" selection-start-column="63" selection-end-line="269" selection-end-column="63" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1503791515945" expanded="true" signature="1803:1894" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="1894:1997" placeholder="INSERT INTO cost..." />
-            <marker date="1503791515945" expanded="true" signature="4163:4206" placeholder="SELECT costs..cost..." />
-            <marker date="1503791515945" expanded="true" signature="6729:6831" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7109:7215" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7485:7583" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="7914:8020" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8498:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8600:8825" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="8668:8699" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="8996:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9104:9327" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9172:9202" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="9495:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9594:9853" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="9697:9728" placeholder="SELECT to_sp..cost..." />
-            <marker date="1503791515945" expanded="true" signature="10240:10364" placeholder="..." />
-            <marker date="1503791515945" expanded="true" signature="10326:10364" placeholder="{...}" />
-            <marker date="1503791515945" expanded="true" signature="14504:14520" placeholder="DELETE FROM ..." />
-            <marker date="1503791515945" expanded="true" signature="14560:14674" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.6032258">
+          <caret line="40" column="118" selection-start-line="40" selection-start-column="118" selection-end-line="40" selection-end-column="118" />
+          <folding />
         </state>
       </provider>
     </entry>

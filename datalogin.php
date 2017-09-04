@@ -8,7 +8,8 @@
     if (mysqli_connect_errno()){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-
+    global $allCosts;
+    $allCosts = mysqli_query($con,"Select SUM(to_spend_price) FROM cost");
     if($_POST){
 
         //Total money

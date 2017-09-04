@@ -24,17 +24,21 @@
     </header>-->
     <div class="total-cash">
         <div class="left-box-btn"><i class="fa fa-money" aria-hidden="true"></i></div>
-        <div class="fix-hide">    
+        <div class="fix-hide">
             <form method="post">
                 <input type="number" name="total" class="totals">
                 <input type="submit" class="totalSendBtn" value="+ Tárcához">
             </form>
             <div class="count">
                 <?php
+                    $results = $allCosts;
+                    while($row = mysqli_fetch_array($results)) {
+                        $allCosts = $row['SUM(to_spend_price)'];
+                    }
                     $results = dataResults('total_money', 'gate_money', $con);
                     while($row = mysqli_fetch_array($results)){
                         ?>
-                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo $row['total_money']; ?> Ft</span>
+                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo $row['total_money'] - $allCosts; ?> Ft</span>
                         <?php
                     }
                 ?>
