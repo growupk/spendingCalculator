@@ -3,7 +3,7 @@
   to { background-position: 0 80%; }
 }
 body{
-  background-image: url("background.jpg");
+  background-image: url("../image/background.jpg");
   background-position: 0px 0px;
   animation: animatedBackground 35s linear infinite;
   @media(max-width: 767px){
@@ -139,7 +139,7 @@ input.sendBtn {
 }
 .final-border-box{
   border: 2px solid #fcfbf1;
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
   box-shadow: 2px 3px 10px #464646;
   margin-top: 25px;
 }
@@ -151,73 +151,95 @@ p.final-border{
 }
 //Total Cash container
 .total-cash{
-    position: fixed;
-    text-align: center;
-    top: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  z-index: 2;
+  .left-box-btn{
+    cursor: pointer;
+    width: 160px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    border-radius: 0px 50px 50px 0px;
+    color: #8ce469;
+    background-color: #fff;
+    box-shadow: 5px 3px 6px #464646;
+    padding: 2px 0px;
+    .next-money{
+      color: #e04444;
+      letter-spacing: -1px;
+      font-weight: bold;
+    }
+  }
+  .fix-hide{
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+  }
+  .fix-hide.show{
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.40);
+    padding: 10px 10px 5px 10px;
+    border: 1px solid white;
+    border-left: none;
+    opacity: 1;
     z-index: 2;
-    .left-box-btn{
-      cursor: pointer;
-      width: 160px;
-      margin-bottom: 10px;
-      font-size: 25px;
-      border-radius: 0px 50px 50px 0px;
-      color: #8ce469;
-      background-color: #fff;
-      box-shadow: 5px 3px 6px #464646;
-      padding: 2px 0px;
-      .next-money{
-        color: #e04444;
-        letter-spacing: -1px;
-        font-weight: bold;
-      }
+    transition: visibility 0s, opacity 1s;
+  }
+  form{
+    input{
+      display: block;
+      padding: 0 15px;
+      color: #222;
+      text-align: center;
+      height: 50px;
+      border: none;
+      width: 100%;
     }
-    .fix-hide{
-      opacity: 0;
-      visibility: hidden;
-      transition: all 1s;
-    }
-    .fix-hide.show{
-      visibility: visible;
-      background-color: rgba(0, 0, 0, 0.40);
-      padding: 10px 10px 5px 10px;
-      border: 1px solid white;
-      border-left: none;
-      opacity: 1;
-      z-index: 2;
-      transition: visibility 0s, opacity 1s;
-    }
-    form{
-      input{
-        display: block;
-        padding: 0 15px;
-        color: #222;
-        text-align: center;
-        height: 50px;
-        border: none;
-        width: 100%;
-      }
-      .totalSendBtn{
-        margin-top: 10px;
-        height: 40px;
-        background-color: #fdfbef;
-        border: none;
-        font-weight: bold;
-        color: #949494;
-        text-transform: uppercase;
-        font-size: 15px;
-        cursor: pointer;
-      }
-    }
-    .count{
+    .totalSendBtn{
       margin-top: 10px;
-      span{
+      height: 40px;
+      background-color: #fdfbef;
+      border: none;
+      font-weight: bold;
+      color: #949494;
+      text-transform: uppercase;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  }
+  .count{
+    margin-top: 10px;
+    span{
+      color: #fff;
+      font-size: 25px;
+      padding: 5px 10px;
+      i{
+        color: #8ce469;
+        padding-right: 12px;
+      }
+      i.fa-wrench{
+        visibility: hidden;
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        padding-left: 12px;
+        margin-top: 7px;
         color: #fff;
-        font-size: 25px;
-        padding: 5px 10px;
-        i{
-          color: #8ce469;
-          padding-right: 12px;
-        }
+      }
+      .totalCashMod.show{
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.5s;
       }
     }
+  }
+  .totalModForm{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: none;
+  }
+  .totalModForm.show{
+    display: block;
+  }
 }

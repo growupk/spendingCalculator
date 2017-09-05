@@ -58,4 +58,19 @@ $(document).ready(function(){
     $('.left-box-btn').on('click', function(){
         $('.fix-hide').toggleClass('show')
     })
+
+    //total cash szerk btn show
+    $('.fix-hide .count span').on('mouseenter', function(){
+        $('.totalCashMod').addClass('show')
+    })
+    $('.fix-hide .count span').on('mouseleave', function(){
+        if($('.totalModForm.show')){
+            $('.totalCashMod').addClass('show')
+        }
+    })
+    
+    //total cash szerk
+    $('.fix-hide .count .totalCashMod').on('click', function(){
+        $('.totalModForm').toggleClass('show')
+    })
 })

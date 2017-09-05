@@ -34,6 +34,22 @@
             {
                 die('Error: Total money mysql error... :( ' . mysql_error());
             }
+            header("Location: index.php?msg=totalsucess");
+        }
+
+        //Total money szerk
+        if(isset($_POST['totalmod'])){
+            $sqlOr = "SELECT next_money FROM gate_money";
+            
+            $result = mysqli_query($con ,$sqlOr);
+            $value = mysqli_fetch_object($result);
+            
+            $sql="UPDATE gate_money SET next_money = $_POST[totalmod]";
+            if (!mysqli_query($con,$sql))
+            {
+                die('Error: Total money mod mysql error... :( ' . mysql_error());
+            }
+            header("Location: index.php?msg=totalmodsucess");
         }
 
         //Spending cost
@@ -46,6 +62,7 @@
                 die('Error: Spending costs error... :(' . mysql_error());
             }
             subtraction($con);
+            header("Location: index.php?msg=spendsucess");
         }
     }
 
