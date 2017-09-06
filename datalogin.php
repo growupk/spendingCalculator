@@ -39,11 +39,6 @@
 
         //Total money szerk
         if(isset($_POST['totalmod'])){
-            $sqlOr = "SELECT next_money FROM gate_money";
-            
-            $result = mysqli_query($con ,$sqlOr);
-            $value = mysqli_fetch_object($result);
-            
             $sql="UPDATE gate_money SET next_money = $_POST[totalmod]";
             if (!mysqli_query($con,$sql))
             {
@@ -92,5 +87,19 @@
 
     function delDatabase($from, $con){
         mysqli_query( $con,"DELETE FROM $from" );
+    }
+
+    function tableModification($updatePost, $set, $con){
+        if(isset($_POST[$updatePost])){
+            $sql="UPDATE cost SET $set = $_POST[$updatePost] WHERE id = $_POST[id]";
+            if (!mysqli_query($con,$sql))
+            {
+                die('Error: Total money mod mysql error... :( ' . mysql_error());
+            }
+        }
+        
+    }
+    if(isset($_POST['modSpendPrice'])){
+        header('Location: '.$_SERVER['REQUEST_URI']);
     }
 ?>

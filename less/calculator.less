@@ -136,6 +136,15 @@ input.sendBtn {
   .reThird p{
     border-left: none;
   }
+  .row-modification{
+    i{
+      position: absolute;
+      cursor: pointer;
+      right: 0;
+      margin-right: 15px;
+      margin-top: 5px;
+    }
+  }
 }
 .final-border-box{
   border: 2px solid #fcfbf1;
@@ -176,14 +185,14 @@ p.final-border{
   .fix-hide{
     opacity: 0;
     visibility: hidden;
-    transition: all 1s;
-  }
-  .fix-hide.show{
-    visibility: visible;
     background-color: rgba(0, 0, 0, 0.40);
     padding: 10px 10px 5px 10px;
     border: 1px solid white;
     border-left: none;
+    transition: all 1s;
+  }
+  .fix-hide.show{
+    visibility: visible;
     opacity: 1;
     z-index: 2;
     transition: visibility 0s, opacity 1s;

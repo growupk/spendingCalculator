@@ -29,7 +29,7 @@ $(document).ready(function(){
 
     function shake(){
         var random = Math.floor(Math.random() * 1000)
-        var $li = $(".response i")
+        var $li = $(".response h3 i")
         $li.eq(random % $li.length).toggleClass("shake-chunk shake-slow shake-constant")
     }
     setInterval(shake,6000)

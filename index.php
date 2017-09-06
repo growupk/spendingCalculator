@@ -208,10 +208,15 @@
                 <h3><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mire</h3>
                 <div>
                 <?php
-                    $results = dataResults('to_spend_what', 'cost', $con);
+                    $results = dataResults('*', 'cost', $con);
                     while($row = mysqli_fetch_array($results)){
                 ?>
                     <p><?php  echo $row['to_spend_what']; ?></p>
+                    <form method="post" action="<?php tableModification('modSpendWhat','to_spend_what', $con); ?>">
+                        <input type="text" name="modSpendWhat" class="">
+                        <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+                        <input type="submit" class="tableModBtn" value="Mentés">
+                    </form>
                 <?php } ?>
                 </div>
             </div>
@@ -220,10 +225,18 @@
                 <div>
                 <?php
                     $subtotal = 0;
-                    $results = dataResults('to_spend_price', 'cost', $con);
+                    $results = dataResults('*', 'cost', $con);
                     while($row = mysqli_fetch_array($results)){
                 ?>
-                    <p><?php  echo number_format($row['to_spend_price']) . ' Ft'; ?></p>
+                    <p>
+                        <?php  echo number_format($row['to_spend_price']) . ' Ft'; ?>
+                        <span class="row-modification"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                    </p>
+                    <form method="post" action="<?php tableModification('modSpendPrice','to_spend_price', $con); ?>">
+                        <input type="number" name="modSpendPrice" class="">
+                        <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+                        <input type="submit" class="tableModBtn" value="Mentés">
+                    </form>
                 <?php
                     $subtotal += $row['to_spend_price'];
                     }
