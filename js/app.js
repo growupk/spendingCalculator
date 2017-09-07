@@ -29,7 +29,7 @@ $(document).ready(function(){
 
     function shake(){
         var random = Math.floor(Math.random() * 1000)
-        var $li = $(".response h3 i")
+        var $li = $(".response h3 i.shaked")
         $li.eq(random % $li.length).toggleClass("shake-chunk shake-slow shake-constant")
     }
     setInterval(shake,6000)
@@ -72,5 +72,11 @@ $(document).ready(function(){
     //total cash szerk
     $('.fix-hide .count .totalCashMod').on('click', function(){
         $('.totalModForm').toggleClass('show')
+    })
+
+    //Table modification
+    $('.row-modification i').on('click', function(){
+        $('.tableModForm').toggleClass('show')
+        $('.colorOff').toggleClass('colorOn')
     })
 })

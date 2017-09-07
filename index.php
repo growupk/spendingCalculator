@@ -44,7 +44,7 @@
                     $results = dataResults('next_money', 'gate_money', $con);
                     while($row = mysqli_fetch_array($results)){
                         ?>
-                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo number_format($row['next_money']); ?> Ft <i class="fa fa-wrench totalCashMod" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-money" aria-hidden="true"></i><?php echo number_format($row['next_money']); ?> Ft <i title="Tárca szerkesztése" class="fa fa-wrench totalCashMod" aria-hidden="true"></i></span>
                         <?php
                     }
                 ?>
@@ -87,19 +87,31 @@
     <div class="container-fluid response">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3 coststype table-container">
-                <h3><i class="fa fa-line-chart" aria-hidden="true"></i>Kiadás típusa</h3>
+                <h3><i class="fa fa-line-chart shaked" aria-hidden="true"></i>Kiadás típusa</h3>
                 <div class="release-type">
                     <?php
-                    $results = dataResults('costs_type, to_spend_price', 'cost', $con);
+                    $results = dataResults('*', 'cost', $con);
                     $index = 0;
+                    $counter = 0;
                     $coType = array();
                     while($row = mysqli_fetch_array($results)){
                         $coType[$index] = $row['costs_type'];
                         $index++;
                         ?>
 
-                        <p class="data-price" data-price="<?php echo $row['to_spend_price']; ?>"><?php  echo $row['costs_type']; ?></p>
-
+                        <p class="data-price <?php echo ($counter % 2 == 0) ? 'colorOn' : 'colorOff'; ?>" data-price="<?php echo $row['to_spend_price']; ?>"><?php  echo $row['costs_type']; ?></p>
+                        <form method="post" action="<?php tableModification('modtype','costs_type', $con); ?>" class="modtype tableModForm">
+                            <select name="modtype" id="costs-type">
+                                <option>Étel</option>
+                                <option>Üzemanyag</option>
+                                <option>Albérlet/Rezsi</option>
+                                <option>Luxus</option>
+                                <option>Egyéb/Nem várt</option>
+                            </select>
+                            <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+                            <input type="submit" class="tableModBtn" value="Mentés">
+                        </form>
+                        <?php $counter++;?>
                     <?php } 
                         $food = array();
                         $fuel = array();
@@ -193,52 +205,61 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 reFirst table-container">
-                <h3><i class="fa fa-university" aria-hidden="true"></i>Hol</h3>
+                <h3><i class="fa fa-university shaked" aria-hidden="true"></i>Hol</h3>
                 <div>
                 <?php
-                    $results = dataResults('to_spend_where', 'cost', $con);
+                    $counter = 0;
+                    $results = dataResults('*', 'cost', $con);
                     while($row = mysqli_fetch_array($results)){
                 ?>
-                    <p><?php  echo $row['to_spend_where']; ?></p>
-
+                    <p class="<?php echo ($counter % 2 == 0) ? 'colorOn' : 'colorOff'; ?>"><?php  echo $row['to_spend_where']; ?></p>
+                    <form method="post" action="<?php tableModification('modwhere','to_spend_where', $con); ?>" class="tableModForm">
+                        <input type="text" name="modwhere" class="tablemodInput">
+                        <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+                        <input type="submit" class="tableModBtn" value="Mentés">
+                    </form>
+                    <?php $counter++;?>
                 <?php } ?>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 reSecond table-container">
-                <h3><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mire</h3>
+                <h3><i class="fa fa-shopping-basket shaked" aria-hidden="true"></i>Mire</h3>
                 <div>
                 <?php
+                    $counter = 0;
                     $results = dataResults('*', 'cost', $con);
                     while($row = mysqli_fetch_array($results)){
                 ?>
-                    <p><?php  echo $row['to_spend_what']; ?></p>
-                    <form method="post" action="<?php tableModification('modSpendWhat','to_spend_what', $con); ?>">
-                        <input type="text" name="modSpendWhat" class="">
+                    <p class="<?php echo ($counter % 2 == 0) ? 'colorOn' : 'colorOff'; ?>"><?php  echo $row['to_spend_what']; ?></p>
+                    <form method="post" action="<?php tableModification('modwhat','to_spend_what', $con); ?>" class="tableModForm">
+                        <input type="text" name="modwhat" class="tablemodInput">
                         <input type="hidden" name="id" value="<?php echo $row['id'];?>">
                         <input type="submit" class="tableModBtn" value="Mentés">
                     </form>
+                    <?php $counter++;?>
                 <?php } ?>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 reThird table-container">
-                <h3><i class="fa fa-usd" aria-hidden="true"></i>Mennyit</h3>
+                <h3><i class="fa fa-usd shaked" aria-hidden="true"></i>Mennyit <span class="row-modification"><i title="Táblázat szerkesztése" class="fa fa-pencil-square-o" aria-hidden="true"></i></span></h3>
                 <div>
                 <?php
                     $subtotal = 0;
+                    $counter = 0;
                     $results = dataResults('*', 'cost', $con);
                     while($row = mysqli_fetch_array($results)){
                 ?>
-                    <p>
+                    <p class="<?php echo ($counter % 2 == 0) ? 'colorOn' : 'colorOff'; ?>">
                         <?php  echo number_format($row['to_spend_price']) . ' Ft'; ?>
-                        <span class="row-modification"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                     </p>
-                    <form method="post" action="<?php tableModification('modSpendPrice','to_spend_price', $con); ?>">
-                        <input type="number" name="modSpendPrice" class="">
+                    <form method="post" action="<?php tableModification('modSpendPrice','to_spend_price', $con); ?>" class="tableModForm">
+                        <input type="number" name="modSpendPrice" class="tablemodInput">
                         <input type="hidden" name="id" value="<?php echo $row['id'];?>">
                         <input type="submit" class="tableModBtn" value="Mentés">
                     </form>
                 <?php
                     $subtotal += $row['to_spend_price'];
+                    $counter++;
                     }
                 ?>
                 <p><?php  echo 'Összesen: ' . number_format($subtotal) . ' Ft'; ?></p>
@@ -337,9 +358,9 @@
             }
         }
     ?>
-    <!--<form method="post">
+    <form method="post">
         <input type="submit" name="deleteAll" class="deleteBtn" value="DB Töröl">
-    </form>-->
+    </form>
     <?php
         mysqli_close($con);
     ?>

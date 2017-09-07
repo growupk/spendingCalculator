@@ -39,7 +39,11 @@
 
         //Total money szerk
         if(isset($_POST['totalmod'])){
-            $sql="UPDATE gate_money SET next_money = $_POST[totalmod]";
+            $allCosts = mysqli_query($con,"SELECT SUM(to_spend_price) FROM cost");
+            $costsValue = mysqli_fetch_array($allCosts);
+            $intCostsV = (int)$costsValue['SUM(to_spend_price)'];
+
+            $sql="UPDATE gate_money SET next_money = $_POST[totalmod], total_money = $_POST[totalmod] + $intCostsV";
             if (!mysqli_query($con,$sql))
             {
                 die('Error: Total money mod mysql error... :( ' . mysql_error());
@@ -91,7 +95,7 @@
 
     function tableModification($updatePost, $set, $con){
         if(isset($_POST[$updatePost])){
-            $sql="UPDATE cost SET $set = $_POST[$updatePost] WHERE id = $_POST[id]";
+            $sql="UPDATE cost SET $set = '$_POST[$updatePost]' WHERE id = $_POST[id]";
             if (!mysqli_query($con,$sql))
             {
                 die('Error: Total money mod mysql error... :( ' . mysql_error());
@@ -99,7 +103,7 @@
         }
         
     }
-    if(isset($_POST['modSpendPrice'])){
+    if(isset($_POST['modSpendPrice']) || isset($_POST['modtype']) || isset($_POST['modwhere']) || isset($_POST['modwhat'])){
         header('Location: '.$_SERVER['REQUEST_URI']);
     }
 ?>

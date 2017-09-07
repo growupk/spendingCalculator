@@ -121,29 +121,86 @@ input.sendBtn {
     border-bottom: 1px solid #8f8f8a;
     border-left: 1px solid #8f8f8a;
     margin: 0;
-    &:nth-child(even){
-      background-color: transparent;
-      color: #fff;
+  }
+  p.colorOff{
+    background-color: transparent;
+    color: #fff;
+  }
+  p.colorOn{
+    background-color: rgb(252, 251, 241);
+    color: #949494;
+  }
+  .coststype{
+    p{
+      border-right: none; 
     }
   }
   .reFirst p{
     border-right: none;
   }
-  .reSecond h3{
-    //border-right: 1px solid #8f8f8a;
-    //border-left: 1px solid #8f8f8a;
+  .reSecond{
+    form{
+      border-right: 1px solid transparent;
+    }
   }
-  .reThird p{
-    border-left: none;
+  .reThird{
+    form{
+      border-right: 1px solid transparent;
+    }
+    p{
+      border-left: none;
+    }
+  }
+  .tableModForm{
+    display: none;
+  }
+  .tableModForm.show{
+    display: block;
   }
   .row-modification{
     i{
       position: absolute;
       cursor: pointer;
       right: 0;
-      margin-right: 15px;
-      margin-top: 5px;
+      font-size: 18px;
+      margin-right: 25px;
+      margin-top: 17px;
     }
+  }
+  .modtype{
+    border-left: 1px solid transparent;
+  }
+  .nice-select{
+    border-radius: 0;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center !important;
+    .list{
+      width: 100%;
+      li{
+        text-align: center;
+      }
+    }
+  }
+  .tablemodInput{
+    max-width: 70%;
+    width: 100%;
+    float: left;
+  }
+  .tableModBtn{
+    cursor: pointer;
+    font-weight: bold;
+    color: #949494;
+    text-transform: uppercase;
+    height: 30px;
+    max-width: 30%;
+    width: 100%;
+    font-size: 12px;
+    float: left;
+    background-color: #fdfbef;
+    border: none;
+    border-bottom: 1px solid #949494;
   }
 }
 .final-border-box{
@@ -151,6 +208,10 @@ input.sendBtn {
   border-radius: 0px 0px 5px 5px;
   box-shadow: 2px 3px 10px #464646;
   margin-top: 25px;
+  p:nth-child(even){
+    background-color: transparent;
+    color: #fff;
+  }
 }
 p.final-border{
   border: none;
