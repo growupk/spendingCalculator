@@ -101,7 +101,7 @@
                 die('Error: Total money mod mysql error... :( ' . mysql_error());
             }
         }
-        
+        subtraction($con);
     }
     if(isset($_POST['modSpendPrice']) || isset($_POST['modtype']) || isset($_POST['modwhere']) || isset($_POST['modwhat'])){
         header('Location: '.$_SERVER['REQUEST_URI']);

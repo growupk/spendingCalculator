@@ -200,6 +200,7 @@ input.sendBtn {
   max-width: 70%;
   width: 100%;
   float: left;
+  text-align: center;
 }
 .response .tableModBtn {
   cursor: pointer;
