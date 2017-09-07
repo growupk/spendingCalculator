@@ -29,7 +29,7 @@
                 $results = dataResults('next_money', 'gate_money', $con);
                 while($row = mysqli_fetch_array($results)){
                     ?>
-                    <span class="next-money"><?php echo  number_format($row['next_money']); ?> Ft</span>
+                    <span class="next-money <?php echo ($row['next_money'] <= 10000) ? 'red ' : ''; ?><?php echo ($row['next_money'] <= 50000 && $row['next_money'] > 10000) ? 'orange' : ''; ?>"><?php echo  number_format($row['next_money']); ?> Ft</span>
                     <?php
                 }
             ?>

@@ -239,23 +239,35 @@ p.final-border {
   z-index: 2;
 }
 .total-cash .left-box-btn {
+  position: relative;
   cursor: pointer;
   width: 160px;
   margin-bottom: 10px;
   font-size: 25px;
-  border: 1px solid #000;
   border-top: none;
-  border-radius: 0px 50px 50px 0px;
   color: #8ce469;
-  background-color: #fff;
-  -webkit-box-shadow: 5px 3px 6px #464646;
-          box-shadow: 5px 3px 6px #464646;
+  background-color: rgba(148, 148, 148, 0.75);
   padding: 2px 0px;
 }
 .total-cash .left-box-btn .next-money {
-  color: #e04444;
+  color: #fff;
   letter-spacing: -1px;
   font-weight: bold;
+}
+.total-cash .left-box-btn .next-money.orange {
+  color: #ffe687;
+}
+.total-cash .left-box-btn .next-money.red {
+  color: #e42727;
+}
+.total-cash .left-box-btn:before {
+  content: "\A";
+  border-style: solid;
+  border-width: 43px 17px 0px 0;
+  border-color: rgba(148, 148, 148, 0.75) transparent transparent transparent;
+  position: absolute;
+  right: -17px;
+  top: -2px;
 }
 .total-cash .fix-hide {
   opacity: 0;

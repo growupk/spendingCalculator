@@ -226,21 +226,37 @@ p.final-border{
   top: 0;
   z-index: 2;
   .left-box-btn{
+    position: relative;
     cursor: pointer;
     width: 160px;
     margin-bottom: 10px;
     font-size: 25px;
-    border: 1px solid #000;
+    //border: 1px solid #000;
     border-top: none;
-    border-radius: 0px 50px 50px 0px;
+    //border-radius: 0px 50px 50px 0px;
     color: #8ce469;
-    background-color: #fff;
-    box-shadow: 5px 3px 6px #464646;
+    background-color: rgba(148, 148, 148, 0.75);
+    //box-shadow: 5px 3px 6px #464646;
     padding: 2px 0px;
     .next-money{
-      color: #e04444;
+      color: #fff;
       letter-spacing: -1px;
       font-weight: bold;
+      &.orange{
+        color: #ffe687;
+      }
+      &.red{
+        color: #e42727;
+      }
+    }
+    &:before{
+      content: "\A";
+      border-style: solid;
+      border-width: 43px 17px 0px 0;
+      border-color: rgba(148, 148, 148, 0.75) transparent transparent transparent;
+      position: absolute;
+      right: -17px;
+      top: -2px;
     }
   }
   .fix-hide{
