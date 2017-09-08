@@ -38,7 +38,7 @@
         }
 
         //Total money szerk
-        if(isset($_POST['totalmod'])){
+        if(isset($_POST['totalmod']) && !empty($_POST['totalmod'])){
             $allCosts = mysqli_query($con,"SELECT SUM(to_spend_price) FROM cost");
             $costsValue = mysqli_fetch_array($allCosts);
             $intCostsV = (int)$costsValue['SUM(to_spend_price)'];
@@ -94,7 +94,7 @@
     }
 
     function tableModification($updatePost, $set, $con){
-        if(isset($_POST[$updatePost])){
+        if(isset($_POST[$updatePost]) && !empty($_POST[$updatePost])){
             $sql="UPDATE cost SET $set = '$_POST[$updatePost]' WHERE id = $_POST[id]";
             if (!mysqli_query($con,$sql))
             {

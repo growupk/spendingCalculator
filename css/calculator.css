@@ -227,6 +227,12 @@ input.sendBtn {
   background-color: transparent;
   color: #fff;
 }
+.final-border-box .detailsBtn {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-top: 3px solid #949494;
+}
 p.final-border {
   border: none;
 }
@@ -342,4 +348,31 @@ p.final-border {
 }
 .total-cash .totalModForm.show {
   display: block;
+}
+/*Remodal popup*/
+.remodal .nav-tabs .nav-item {
+  margin: -1px auto;
+}
+.remodal .nav-tabs .nav-link {
+  color: #000;
+}
+.remodal .tab-content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.remodal .tab-content .lists:nth-child(odd) {
+  background-color: #81c784;
+  color: #fff;
+}
+.remodal .tab-content .lists .col-sm-3 {
+  border-right: 1px solid #efefef;
+}
+.remodal .tab-content .lists .col-sm-3:last-child {
+  border-right: none;
+}
+.remodal .tab-content .lists p {
+  margin: 2px;
+}
+.remodal .tab-content .typeAll {
+  margin-top: 30px;
 }

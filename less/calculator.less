@@ -213,6 +213,12 @@ input.sendBtn {
     background-color: transparent;
     color: #fff;
   }
+  .detailsBtn{
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-top: 3px solid #949494;
+  }
 }
 p.final-border{
   border: none;
@@ -331,5 +337,38 @@ p.final-border{
   }
   .totalModForm.show{
     display: block;
+  }
+}
+/*Remodal popup*/
+.remodal{
+  .nav-tabs{
+    .nav-item{
+      margin: -1px auto;
+    }
+    .nav-link{
+      color: #000;
+    }
+  }
+  .tab-content{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .lists{
+      &:nth-child(odd){
+        background-color: #81c784;
+        color: #fff;
+      }
+      .col-sm-3{
+        border-right: 1px solid #efefef;
+        &:last-child{
+          border-right: none;
+        }
+      }
+      p{
+        margin: 2px;
+      }
+    }
+    .typeAll{
+      margin-top: 30px;
+    }
   }
 }
