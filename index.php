@@ -366,9 +366,9 @@
                 }
             }
         ?>
-        <form method="post">
+        <!--<form method="post">
             <input type="submit" name="deleteAll" class="deleteBtn" value="DB Töröl">
-        </form>
+        </form>-->
         <!--Popup Remodal-->
         <?php
             include 'remodal.php';

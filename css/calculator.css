@@ -356,6 +356,9 @@ p.final-border {
 .remodal .nav-tabs .nav-link {
   color: #000;
 }
+.remodal .nav-tabs .nav-link.active {
+  color: #81c784;
+}
 .remodal .tab-content {
   margin-top: 30px;
   margin-bottom: 30px;

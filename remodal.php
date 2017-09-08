@@ -46,41 +46,41 @@
             <?php 
                 if(!empty($food)){
                 ?>
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#food"><?php echo $food; ?></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo (!empty($food)) ? 'active' : '' ;?>" data-toggle="tab" href="#food"><?php echo $food; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
                 if(!empty($fuel)){
                 ?>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#fuel"><?php echo $fuel; ?></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" data-toggle="tab" href="#fuel"><?php echo $fuel; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
                 if(!empty($apartment)){
                 ?>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#apartment"><?php echo $apartment; ?></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" data-toggle="tab" href="#apartment"><?php echo $apartment; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
                 if(!empty($luxx)){
                 ?>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#luxx"><?php echo $luxx; ?></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" data-toggle="tab" href="#luxx"><?php echo $luxx; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
                 if(!empty($other)){
                 ?>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#other"><?php echo $other; ?></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" data-toggle="tab" href="#other"><?php echo $other; ?></a></li>
                 <?php
                 }
             ?>
         </ul>
         <div class="tab-content">
-            <div id="food" class="tab-pane active" role="tabpanel">
+            <div id="food" class="tab-pane <?php echo (!empty($food)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
                     <?php
                         $results = dataResults('*', 'cost', $con);
@@ -112,7 +112,7 @@
                     <p class="typeAll">Összesen: <span class="foodfull"></span></p>
                 </div>
             </div>
-            <div id="fuel" class="tab-pane" role="tabpanel">
+            <div id="fuel" class="tab-pane <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
                     <?php
                         $results = dataResults('*', 'cost', $con);
@@ -144,7 +144,7 @@
                     <p class="typeAll">Összesen: <span class="fuelfull"></span></p>
                 </div>
             </div>
-            <div id="apartment" class="tab-pane" role="tabpanel">
+            <div id="apartment" class="tab-pane <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
                     <?php
                         $results = dataResults('*', 'cost', $con);
@@ -176,7 +176,7 @@
                     <p class="typeAll">Összesen: <span class="apartmentfull"></span></p>
                 </div>
             </div>
-            <div id="luxx" class="tab-pane" role="tabpanel">
+            <div id="luxx" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
                     <?php
                         $results = dataResults('*', 'cost', $con);
@@ -208,7 +208,7 @@
                     <p class="typeAll">Összesen: <span class="luxfull"></span></p>
                 </div>
             </div>
-            <div id="other" class="tab-pane" role="tabpanel">
+            <div id="other" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
                     <?php
                         $results = dataResults('*', 'cost', $con);
