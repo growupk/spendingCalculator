@@ -82,7 +82,7 @@
         <div class="tab-content">
             <div id="food" class="tab-pane <?php echo (!empty($food)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <div class="row lists">
+                    <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
                         </div>
@@ -128,7 +128,7 @@
             </div>
             <div id="fuel" class="tab-pane <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <div class="row lists">
+                    <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
                         </div>
@@ -174,7 +174,7 @@
             </div>
             <div id="apartment" class="tab-pane <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <div class="row lists">
+                    <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
                         </div>
@@ -220,7 +220,7 @@
             </div>
             <div id="luxx" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <div class="row lists">
+                    <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
                         </div>
@@ -266,7 +266,7 @@
             </div>
             <div id="other" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <div class="row lists">
+                    <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
                         </div>

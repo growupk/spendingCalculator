@@ -85,7 +85,7 @@
     }
 
     function dataResults($select, $from, $con){
-        $results = mysqli_query($con,"SELECT $select FROM $from WHERE IF(MONTH(buy_date), MONTH(buy_date) = MONTH(CURRENT_DATE()), '')");
+        $results = mysqli_query($con,"SELECT $select FROM $from WHERE IF(MONTH(buy_date), MONTH(buy_date) = MONTH(CURRENT_DATE()), '')"); //- INTERVAL 1 MONTH (előző hónaphoz)
         return $results;
     }
     function dataResultsPrice($select, $from, $con){
