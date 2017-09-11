@@ -30,7 +30,7 @@
             <div class="left-box-btn">
                 <i class="fa fa-money" aria-hidden="true"></i>
                 <?php
-                    $results = dataResults('next_money', 'gate_money', $con);
+                    $results = dataResultsPrice('next_money', 'gate_money', $con);
                     while($row = mysqli_fetch_array($results)){
                         ?>
                         <span class="next-money <?php echo ($row['next_money'] <= 10000) ? 'red ' : ''; ?><?php echo ($row['next_money'] <= 50000 && $row['next_money'] > 10000) ? 'orange' : ''; ?>"><?php echo  number_format($row['next_money']); ?> Ft</span>
@@ -45,7 +45,7 @@
                 </form>
                 <div class="count">
                     <?php
-                        $results = dataResults('next_money', 'gate_money', $con);
+                        $results = dataResultsPrice('next_money', 'gate_money', $con);
                         while($row = mysqli_fetch_array($results)){
                             ?>
                             <span><i class="fa fa-money" aria-hidden="true"></i><?php echo number_format($row['next_money']); ?> Ft <i title="Tárca szerkesztése" class="fa fa-wrench totalCashMod" aria-hidden="true"></i></span>
@@ -366,9 +366,9 @@
                 }
             }
         ?>
-        <!--<form method="post">
+        <form method="post">
             <input type="submit" name="deleteAll" class="deleteBtn" value="DB Töröl">
-        </form>-->
+        </form>
         <!--Popup Remodal-->
         <?php
             include 'remodal.php';

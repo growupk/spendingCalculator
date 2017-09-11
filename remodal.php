@@ -38,9 +38,9 @@
                     echo "Még nem történt költekezés!";
             }
             ?>
-            <?php
+    <?php
         }
-?>
+    ?>
     <div class="container">
         <ul class="nav nav-tabs">
             <?php 
@@ -82,6 +82,20 @@
         <div class="tab-content">
             <div id="food" class="tab-pane <?php echo (!empty($food)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
+                    <div class="row lists">
+                        <div class="col-sm-3">
+                            <p>Dátum</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Üzlet</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Termék</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Ár</p>
+                        </div>
+                    </div>
                     <?php
                         $results = dataResults('*', 'cost', $con);
                         while($row = mysqli_fetch_array($results)){
@@ -109,11 +123,25 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Összesen: <span class="foodfull"></span></p>
+                    <p class="typeAll">Ételre összesen: <span class="foodfull"></span></p>
                 </div>
             </div>
             <div id="fuel" class="tab-pane <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
+                    <div class="row lists">
+                        <div class="col-sm-3">
+                            <p>Dátum</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Üzlet</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Termék</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Ár</p>
+                        </div>
+                    </div>
                     <?php
                         $results = dataResults('*', 'cost', $con);
                         while($row = mysqli_fetch_array($results)){
@@ -141,11 +169,25 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Összesen: <span class="fuelfull"></span></p>
+                    <p class="typeAll">Üzemanyagra összesen: <span class="fuelfull"></span></p>
                 </div>
             </div>
             <div id="apartment" class="tab-pane <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
+                    <div class="row lists">
+                        <div class="col-sm-3">
+                            <p>Dátum</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Üzlet</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Termék</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Ár</p>
+                        </div>
+                    </div>
                     <?php
                         $results = dataResults('*', 'cost', $con);
                         while($row = mysqli_fetch_array($results)){
@@ -173,11 +215,25 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Összesen: <span class="apartmentfull"></span></p>
+                    <p class="typeAll">Albérletre összesen: <span class="apartmentfull"></span></p>
                 </div>
             </div>
             <div id="luxx" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
+                    <div class="row lists">
+                        <div class="col-sm-3">
+                            <p>Dátum</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Üzlet</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Termék</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Ár</p>
+                        </div>
+                    </div>
                     <?php
                         $results = dataResults('*', 'cost', $con);
                         while($row = mysqli_fetch_array($results)){
@@ -205,11 +261,25 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Összesen: <span class="luxfull"></span></p>
+                    <p class="typeAll">Luxusra összesen: <span class="luxfull"></span></p>
                 </div>
             </div>
             <div id="other" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
+                    <div class="row lists">
+                        <div class="col-sm-3">
+                            <p>Dátum</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Üzlet</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Termék</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Ár</p>
+                        </div>
+                    </div>
                     <?php
                         $results = dataResults('*', 'cost', $con);
                         while($row = mysqli_fetch_array($results)){
@@ -237,7 +307,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Összesen: <span class="otherfull"></span></p>
+                    <p class="typeAll">Egyéb/Nem várt, összesen: <span class="otherfull"></span></p>
                 </div>
             </div>
         </div>
