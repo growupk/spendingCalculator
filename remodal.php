@@ -82,6 +82,40 @@
         <div class="tab-content">
             <div id="food" class="tab-pane <?php echo (!empty($food)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
+                    <?php
+                        $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+                        setlocale(LC_ALL, 'hu_HU.ISO8859-2');
+                        $actMonth = date('F');
+                    ?>
+                    <script>
+                        /*$(document).ready(function(){
+                           
+                            $('#month').change(function(){
+                                //Selected value
+                                var inputValue = $(this).val();
+                                alert("value in js "+inputValue);
+
+                                //Ajax for calling php function
+                                $.post('monthFilter.php', { value: inputValue }, function(data){
+                                    alert('ajax completed. Response:  '+data);
+                                    //do after submission operation in DOM
+                                });
+                            });
+                        });*/
+                    </script>
+                    <div class="row month-select justify-content-end">
+                        <form method="post">
+                            <select name="month" id="month">
+                                <?php
+                                    foreach($allMonth as $month){
+                                    ?>
+                                        <option <?php echo ($month === strtolower($actMonth)) ? 'selected' : ''; ?>><?php echo $month; ?></option>
+                                    <?php
+                                    }
+                                ?>
+                            </select>
+                        </form>
+                    </div>
                     <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
@@ -97,7 +131,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $food){
                             ?>

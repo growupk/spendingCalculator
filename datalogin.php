@@ -88,6 +88,22 @@
         $results = mysqli_query($con,"SELECT $select FROM $from WHERE IF(MONTH(buy_date), MONTH(buy_date) = MONTH(CURRENT_DATE()), '')"); //- INTERVAL 1 MONTH (előző hónaphoz)
         return $results;
     }
+
+    //month filer
+    function monthFilter($select, $from, $month, $con){
+        $results = mysqli_query($con,"SELECT $select FROM $from WHERE MONTHNAME(buy_date) = '$month'"); // SELECT * FROM table WHERE MONTHNAME(date_column) = 'march'
+        return $results;
+    }
+    function processDrpdown($selectedVal) {
+        echo "Selected value in php ".$selectedVal;
+    }        
+    
+    if (isset($_POST['value'])){
+        //call the function or execute the code
+        processDrpdown($_POST['value']);
+    }
+     //month filer end
+
     function dataResultsPrice($select, $from, $con){
         $results = mysqli_query($con,"SELECT $select FROM $from");
         return $results;
