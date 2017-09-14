@@ -119,33 +119,35 @@
                             <p>Ár</p>
                         </div>
                     </div>
-                    <?php
-                        $results = monthFilter('*', 'cost', $actMonth, $con);
-                        while($row = mysqli_fetch_array($results)){
-                            if($row['costs_type'] === $food){
-                            ?>
-                                <div class="row lists">
-                                    <div class="col-sm-3">
-                                        <?php
-                                            $buyDate = $row['buy_date'];
-                                            list($date, $time) = explode(" ", $buyDate);
-                                        ?>
-                                        <p><?= $date;?></p>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <p><?= $row['to_spend_where'];?></p>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <p><?= $row['to_spend_what'];?></p>
-                                    </div>
-                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
-                                        <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
-                                    </div>
-                                </div>
+                    <div class="inner-content">
                         <?php
+                            $results = monthFilter('*', 'cost', $actMonth, $con);
+                            while($row = mysqli_fetch_array($results)){
+                                if($row['costs_type'] === $food){
+                                ?>
+                                    <div class="row lists">
+                                        <div class="col-sm-3">
+                                            <?php
+                                                $buyDate = $row['buy_date'];
+                                                list($date, $time) = explode(" ", $buyDate);
+                                            ?>
+                                            <p><?= $date;?></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p><?= $row['to_spend_where'];?></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p><?= $row['to_spend_what'];?></p>
+                                        </div>
+                                        <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
+                                            <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
+                                        </div>
+                                    </div>
+                            <?php
+                                }
                             }
-                        }
-                    ?>
+                        ?>
+                    </div>
                     <p class="typeAll">Ételre összesen: <span class="refoodfull"></span></p>
                 </div>
             </div>

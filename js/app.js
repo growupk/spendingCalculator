@@ -140,3 +140,7 @@ $(document).ready(function(){
     $('.reotherfull').text(otherPrices + ' Ft')
     /*Ezt majd rövidíteni kell... end*/
 })
+$(window).on('load', function(){
+    $('body').css('overflow', 'auto');
+    $('.page-loader').css('visibility', 'hidden');
+})

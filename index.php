@@ -2,7 +2,16 @@
 <?php
     include 'header.php';
 ?>
-
+    <div class="page-loader">
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
     <div class="remodal-bg">
         <header>
             <!--<h1>Havi Költségkalkulátor</h1>-->
