@@ -42,6 +42,29 @@
         }
     ?>
     <div class="container">
+        <?php
+            $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+            $allMonthHun = ['Január','Február','Március','Április','Május','Június','Július','Augusztus','Szeptember','Október','November','December'];
+            setlocale(LC_ALL, 'hu_HU.ISO8859-2');
+            $actMonth = date('F');
+
+            if(isset($_POST['monthfilter'])){
+                $actMonth = $_POST['monthfilter'];
+            }
+        ?>
+        <div class="row month-select justify-content-end">
+            <form method="post" action="#modal" name="filterForm">
+                <select name="monthfilter" id="month" onchange="filterForm.submit();">
+                    <?php
+                        for($i=0; $i<sizeof($allMonth); $i++){
+                        ?>
+                            <option <?php echo ($allMonth[$i] === strtolower($actMonth)) ? 'selected' : ''; ?> value="<?php echo $allMonth[$i];?>"><?php echo $allMonthHun[$i]; ?></option>
+                        <?php
+                        }
+                    ?>
+                </select>
+            </form>
+        </div>
         <ul class="nav nav-tabs">
             <?php 
                 if(!empty($food)){
@@ -82,40 +105,6 @@
         <div class="tab-content">
             <div id="food" class="tab-pane <?php echo (!empty($food)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <?php
-                        $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-                        setlocale(LC_ALL, 'hu_HU.ISO8859-2');
-                        $actMonth = date('F');
-                    ?>
-                    <script>
-                        /*$(document).ready(function(){
-                           
-                            $('#month').change(function(){
-                                //Selected value
-                                var inputValue = $(this).val();
-                                alert("value in js "+inputValue);
-
-                                //Ajax for calling php function
-                                $.post('monthFilter.php', { value: inputValue }, function(data){
-                                    alert('ajax completed. Response:  '+data);
-                                    //do after submission operation in DOM
-                                });
-                            });
-                        });*/
-                    </script>
-                    <div class="row month-select justify-content-end">
-                        <form method="post">
-                            <select name="month" id="month">
-                                <?php
-                                    foreach($allMonth as $month){
-                                    ?>
-                                        <option <?php echo ($month === strtolower($actMonth)) ? 'selected' : ''; ?>><?php echo $month; ?></option>
-                                    <?php
-                                    }
-                                ?>
-                            </select>
-                        </form>
-                    </div>
                     <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
@@ -177,7 +166,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $fuel){
                             ?>
@@ -223,7 +212,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $apartment){
                             ?>
@@ -269,7 +258,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $luxx){
                             ?>
@@ -315,7 +304,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $other){
                             ?>
