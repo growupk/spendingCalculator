@@ -349,6 +349,21 @@ p.final-border{
 }
 /*Remodal popup*/
 .remodal{
+  .month-select{
+    margin-bottom: 28px; 
+    .nice-select{
+      width: 150px;
+      text-align: center !important;
+    }
+    .list{
+      max-height: 200px;
+      overflow-y: auto;
+      width: 100%;
+      li{
+        text-align: center;
+      }
+    }
+  }
   .nav-tabs{
     .nav-item{
       margin: -1px auto;
@@ -363,23 +378,8 @@ p.final-border{
   .tab-content{
     margin-top: 30px;
     margin-bottom: 30px;
-    .month-select{
-      margin-bottom: 28px; 
-      .nice-select{
-        width: 150px;
-        text-align: center !important;
-      }
-      .list{
-        max-height: 200px;
-        overflow-y: auto;
-        width: 100%;
-        li{
-          text-align: center;
-        }
-      }
-    }
     .lists{
-      &:nth-child(even){
+      &:nth-child(odd){
         background-color: #81c784;
         color: #fff;
       }

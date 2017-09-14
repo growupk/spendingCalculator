@@ -42,6 +42,29 @@
         }
     ?>
     <div class="container">
+        <?php
+            $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+            $allMonthHun = ['Január','Február','Március','Április','Május','Június','Július','Augusztus','Szeptember','Október','November','December'];
+            setlocale(LC_ALL, 'hu_HU.ISO8859-2');
+            $actMonth = date('F');
+
+            if(isset($_POST['monthfilter'])){
+                $actMonth = $_POST['monthfilter'];
+            }
+        ?>
+        <div class="row month-select justify-content-end">
+            <form method="post" action="#modal" name="filterForm">
+                <select name="monthfilter" id="month" onchange="filterForm.submit();">
+                    <?php
+                        for($i=0; $i<sizeof($allMonth); $i++){
+                        ?>
+                            <option <?php echo ($allMonth[$i] === strtolower($actMonth)) ? 'selected' : ''; ?> value="<?php echo $allMonth[$i];?>"><?php echo $allMonthHun[$i]; ?></option>
+                        <?php
+                        }
+                    ?>
+                </select>
+            </form>
+        </div>
         <ul class="nav nav-tabs">
             <?php 
                 if(!empty($food)){
@@ -82,40 +105,6 @@
         <div class="tab-content">
             <div id="food" class="tab-pane <?php echo (!empty($food)) ? 'active' : '' ;?>" role="tabpanel">
                 <div class="container">
-                    <?php
-                        $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-                        setlocale(LC_ALL, 'hu_HU.ISO8859-2');
-                        $actMonth = date('F');
-                    ?>
-                    <script>
-                        /*$(document).ready(function(){
-                           
-                            $('#month').change(function(){
-                                //Selected value
-                                var inputValue = $(this).val();
-                                alert("value in js "+inputValue);
-
-                                //Ajax for calling php function
-                                $.post('monthFilter.php', { value: inputValue }, function(data){
-                                    alert('ajax completed. Response:  '+data);
-                                    //do after submission operation in DOM
-                                });
-                            });
-                        });*/
-                    </script>
-                    <div class="row month-select justify-content-end">
-                        <form method="post">
-                            <select name="month" id="month">
-                                <?php
-                                    foreach($allMonth as $month){
-                                    ?>
-                                        <option <?php echo ($month === strtolower($actMonth)) ? 'selected' : ''; ?>><?php echo $month; ?></option>
-                                    <?php
-                                    }
-                                ?>
-                            </select>
-                        </form>
-                    </div>
                     <div class="row lists table-title">
                         <div class="col-sm-3">
                             <p>Dátum</p>
@@ -130,34 +119,36 @@
                             <p>Ár</p>
                         </div>
                     </div>
-                    <?php
-                        $results = monthFilter('*', 'cost', $actMonth, $con);
-                        while($row = mysqli_fetch_array($results)){
-                            if($row['costs_type'] === $food){
-                            ?>
-                                <div class="row lists">
-                                    <div class="col-sm-3">
-                                        <?php
-                                            $buyDate = $row['buy_date'];
-                                            list($date, $time) = explode(" ", $buyDate);
-                                        ?>
-                                        <p><?= $date;?></p>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <p><?= $row['to_spend_where'];?></p>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <p><?= $row['to_spend_what'];?></p>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
-                                    </div>
-                                </div>
+                    <div class="inner-content">
                         <?php
+                            $results = monthFilter('*', 'cost', $actMonth, $con);
+                            while($row = mysqli_fetch_array($results)){
+                                if($row['costs_type'] === $food){
+                                ?>
+                                    <div class="row lists">
+                                        <div class="col-sm-3">
+                                            <?php
+                                                $buyDate = $row['buy_date'];
+                                                list($date, $time) = explode(" ", $buyDate);
+                                            ?>
+                                            <p><?= $date;?></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p><?= $row['to_spend_where'];?></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p><?= $row['to_spend_what'];?></p>
+                                        </div>
+                                        <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
+                                            <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
+                                        </div>
+                                    </div>
+                            <?php
+                                }
                             }
-                        }
-                    ?>
-                    <p class="typeAll">Ételre összesen: <span class="foodfull"></span></p>
+                        ?>
+                    </div>
+                    <p class="typeAll">Ételre összesen: <span class="refoodfull"></span></p>
                 </div>
             </div>
             <div id="fuel" class="tab-pane <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" role="tabpanel">
@@ -177,7 +168,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $fuel){
                             ?>
@@ -195,7 +186,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -203,7 +194,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Üzemanyagra összesen: <span class="fuelfull"></span></p>
+                    <p class="typeAll">Üzemanyagra összesen: <span class="refuelfull"></span></p>
                 </div>
             </div>
             <div id="apartment" class="tab-pane <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" role="tabpanel">
@@ -223,7 +214,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $apartment){
                             ?>
@@ -241,7 +232,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -249,7 +240,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Albérletre összesen: <span class="apartmentfull"></span></p>
+                    <p class="typeAll">Albérletre összesen: <span class="reapartmentfull"></span></p>
                 </div>
             </div>
             <div id="luxx" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" role="tabpanel">
@@ -269,7 +260,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $luxx){
                             ?>
@@ -287,7 +278,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -295,7 +286,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Luxusra összesen: <span class="luxfull"></span></p>
+                    <p class="typeAll">Luxusra összesen: <span class="reluxxfull"></span></p>
                 </div>
             </div>
             <div id="other" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" role="tabpanel">
@@ -315,7 +306,7 @@
                         </div>
                     </div>
                     <?php
-                        $results = dataResults('*', 'cost', $con);
+                        $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
                             if($row['costs_type'] === $other){
                             ?>
@@ -333,7 +324,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -341,7 +332,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Egyéb/Nem várt, összesen: <span class="otherfull"></span></p>
+                    <p class="typeAll">Egyéb/Nem várt, összesen: <span class="reotherfull"></span></p>
                 </div>
             </div>
         </div>

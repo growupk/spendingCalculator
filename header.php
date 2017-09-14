@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/remodal.css">
     <link rel="stylesheet" href="css/remodal-default-theme.css">
     <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/shake.css">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="js/jquery.nice-select.min.js"></script>

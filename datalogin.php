@@ -94,15 +94,7 @@
         $results = mysqli_query($con,"SELECT $select FROM $from WHERE MONTHNAME(buy_date) = '$month'"); // SELECT * FROM table WHERE MONTHNAME(date_column) = 'march'
         return $results;
     }
-    function processDrpdown($selectedVal) {
-        echo "Selected value in php ".$selectedVal;
-    }        
-    
-    if (isset($_POST['value'])){
-        //call the function or execute the code
-        processDrpdown($_POST['value']);
-    }
-     //month filer end
+    //month filer end
 
     function dataResultsPrice($select, $from, $con){
         $results = mysqli_query($con,"SELECT $select FROM $from");
