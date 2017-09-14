@@ -138,7 +138,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Ételre összesen: <span class="foodfull"></span></p>
+                    <p class="typeAll">Ételre összesen: <span class="refoodfull"></span></p>
                 </div>
             </div>
             <div id="fuel" class="tab-pane <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" role="tabpanel">
@@ -184,7 +184,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -192,7 +192,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Üzemanyagra összesen: <span class="fuelfull"></span></p>
+                    <p class="typeAll">Üzemanyagra összesen: <span class="refuelfull"></span></p>
                 </div>
             </div>
             <div id="apartment" class="tab-pane <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" role="tabpanel">
@@ -230,7 +230,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Albérletre összesen: <span class="apartmentfull"></span></p>
+                    <p class="typeAll">Albérletre összesen: <span class="reapartmentfull"></span></p>
                 </div>
             </div>
             <div id="luxx" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" role="tabpanel">
@@ -276,7 +276,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Luxusra összesen: <span class="luxfull"></span></p>
+                    <p class="typeAll">Luxusra összesen: <span class="reluxxfull"></span></p>
                 </div>
             </div>
             <div id="other" class="tab-pane <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" role="tabpanel">
@@ -322,7 +322,7 @@
                                     <div class="col-sm-3">
                                         <p><?= $row['to_spend_what'];?></p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 filteredPrice" data-filterprice="<?= $row['to_spend_price']; ?>">
                                         <p><?= number_format($row['to_spend_price']) . ' Ft';?></p>
                                     </div>
                                 </div>
@@ -330,7 +330,7 @@
                             }
                         }
                     ?>
-                    <p class="typeAll">Egyéb/Nem várt, összesen: <span class="otherfull"></span></p>
+                    <p class="typeAll">Egyéb/Nem várt, összesen: <span class="reotherfull"></span></p>
                 </div>
             </div>
         </div>

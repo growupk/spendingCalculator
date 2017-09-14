@@ -79,4 +79,64 @@ $(document).ready(function(){
         $('.tableModForm').toggleClass('show')
         $('.colorOff').toggleClass('colorOn')
     })
+
+    //remodal all price
+    var type = ['#food', '#fuel', '#apartment', '#luxx', '#other']
+    var foodPrices = 0
+    var fuelPrices = 0
+    var apartmentPrices = 0
+    var luxxPrices = 0
+    var otherPrices = 0
+    
+    /*Ezt majd rövidíteni kell...*/
+    var food = $('#food .filteredPrice').map(function() {
+        return $(this);
+    }).get();
+
+    for(var i=0; i<food.length; i++){
+        foodPrices += parseInt(food[i].attr('data-filterprice'))
+    }
+
+    $('.refoodfull').text(foodPrices + ' Ft')
+
+    var fuel = $('#fuel .filteredPrice').map(function() {
+        return $(this);
+    }).get();
+
+    for(var h=0; h<fuel.length; h++){
+        fuelPrices += parseInt(fuel[h].attr('data-filterprice'))
+    }
+
+    $('.refuelfull').text(fuelPrices + ' Ft')
+
+    var apartment = $('#apartment .filteredPrice').map(function() {
+        return $(this);
+    }).get();
+
+    for(var k=0; k<apartment.length; k++){
+        apartmentPrices += parseInt(apartment[k].attr('data-filterprice'))
+    }
+
+    $('.reapartmentfull').text(apartmentPrices + ' Ft')
+
+    var luxx = $('#luxx .filteredPrice').map(function() {
+        return $(this);
+    }).get();
+
+    for(var l=0; l<luxx.length; l++){
+        luxxPrices += parseInt(luxx[l].attr('data-filterprice'))
+    }
+
+    $('.reotherfull').text(otherPrices + ' Ft')
+
+    var other = $('#other .filteredPrice').map(function() {
+        return $(this);
+    }).get();
+
+    for(var l=0; l<other.length; l++){
+        otherPrices += parseInt(other[l].attr('data-filterprice'))
+    }
+
+    $('.reotherfull').text(otherPrices + ' Ft')
+    /*Ezt majd rövidíteni kell... end*/
 })
