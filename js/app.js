@@ -127,7 +127,7 @@ $(document).ready(function(){
         luxxPrices += parseInt(luxx[l].attr('data-filterprice'))
     }
 
-    $('.reotherfull').text(otherPrices + ' Ft')
+    $('.reluxxfull').text(luxxPrices + ' Ft')
 
     var other = $('#other .filteredPrice').map(function() {
         return $(this);
