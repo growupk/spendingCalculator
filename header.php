@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="hu">
+    <?php
+        include 'session.php';
+    ?>
 <head>
     <meta charset="UTF-8">
     <title>Havi költségkalkulátor</title>

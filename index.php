@@ -1,6 +1,5 @@
 
 <?php
-    include 'session.php';
     include 'header.php';
 ?>
     <div class="page-loader">
@@ -15,7 +14,7 @@
     </div>
     <div class="remodal-bg">
         <header>
-            <h3><a href = "logout.php">Kijelentkezés</a></h3>
+            <h3><?php echo $login_session; ?><a href = "logout.php"> Kijelentkezés</a></h3>
             <!--<h1>Havi Költségkalkulátor</h1>-->
         </header>
         <div class="total-cash">

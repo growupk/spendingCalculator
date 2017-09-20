@@ -31,7 +31,7 @@ textarea:focus,
 textarea.form-control:focus {
 	outline: 0;
 	background: #fff;
-    border: 3px solid #fff;
+    /*border: 3px solid #fff;*/
     -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 }
 
