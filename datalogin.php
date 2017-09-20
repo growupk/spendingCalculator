@@ -2,7 +2,11 @@
     
     //MySQL Database Connect
     global $con;
-    $con = mysqli_connect("localhost","root","","calculator");
+    //include 'config.php';
+
+    /*Old version*/
+    /*global $con;
+    $con = mysqli_connect("localhost","root","","calculator");*/
 
     // Check connection
     if (mysqli_connect_errno()){
@@ -106,7 +110,7 @@
     }
 
     function tableModification($updatePost, $set, $con){
-        if(isset($_POST[$updatePost]) && !empty($_POST[$updatePost])){
+        if(isset($_POST[$updatePost]) && !empty($_POST[$updatePost]) && isset($_POST['id'])){
             $sql="UPDATE cost SET $set = '$_POST[$updatePost]' WHERE id = $_POST[id]";
             if (!mysqli_query($con,$sql))
             {

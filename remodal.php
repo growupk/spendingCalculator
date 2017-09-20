@@ -167,6 +167,7 @@
                             <p>Ár</p>
                         </div>
                     </div>
+                    <div class="inner-content">
                     <?php
                         $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
@@ -194,6 +195,7 @@
                             }
                         }
                     ?>
+                    </div>
                     <p class="typeAll">Üzemanyagra összesen: <span class="refuelfull"></span></p>
                 </div>
             </div>
@@ -213,6 +215,7 @@
                             <p>Ár</p>
                         </div>
                     </div>
+                    <div class="inner-content">
                     <?php
                         $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
@@ -240,6 +243,7 @@
                             }
                         }
                     ?>
+                    </div>
                     <p class="typeAll">Albérletre összesen: <span class="reapartmentfull"></span></p>
                 </div>
             </div>
@@ -259,6 +263,7 @@
                             <p>Ár</p>
                         </div>
                     </div>
+                    <div class="inner-content">
                     <?php
                         $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
@@ -286,6 +291,7 @@
                             }
                         }
                     ?>
+                    </div>
                     <p class="typeAll">Luxusra összesen: <span class="reluxxfull"></span></p>
                 </div>
             </div>
@@ -305,6 +311,7 @@
                             <p>Ár</p>
                         </div>
                     </div>
+                    <div class="inner-content">
                     <?php
                         $results = monthFilter('*', 'cost', $actMonth, $con);
                         while($row = mysqli_fetch_array($results)){
@@ -332,6 +339,7 @@
                             }
                         }
                     ?>
+                    </div>
                     <p class="typeAll">Egyéb/Nem várt, összesen: <span class="reotherfull"></span></p>
                 </div>
             </div>

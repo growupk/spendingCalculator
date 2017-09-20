@@ -139,6 +139,16 @@ $(document).ready(function(){
 
     $('.reotherfull').text(otherPrices + ' Ft')
     /*Ezt majd rövidíteni kell... end*/
+
+    $(function() {  
+        $('body').niceScroll({
+            cursorcolor:"rgba(0,0,0,0.6)",
+            cursorwidth:"6px",
+            background:"rgba(20,20,20,0.3)",
+            cursorborder:"none",
+            autohidemode: true
+        })
+    })
 })
 $(window).on('load', function(){
     $('body').css('overflow', 'auto');
