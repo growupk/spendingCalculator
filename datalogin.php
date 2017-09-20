@@ -2,7 +2,11 @@
     
     //MySQL Database Connect
     global $con;
-    $con = mysqli_connect("localhost","root","","calculator");
+    //include 'config.php';
+
+    /*Old version*/
+    /*global $con;
+    $con = mysqli_connect("localhost","root","","calculator");*/
 
     // Check connection
     if (mysqli_connect_errno()){
