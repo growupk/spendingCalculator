@@ -14,7 +14,7 @@
     </div>
     <div class="remodal-bg">
         <header>
-            <h3><?php echo $login_session; ?><a href = "logout.php"> Kijelentkezés</a></h3>
+            <!--<h3><?php echo $login_session; ?><a href = "logout.php"> Kijelentkezés</a></h3>-->
             <!--<h1>Havi Költségkalkulátor</h1>-->
         </header>
         <div class="total-cash">
@@ -48,6 +48,10 @@
                     <input type="number" name="totalmod" class="totals">
                     <input type="submit" class="totalSendBtn" value="Tárca felülírás">
                 </form>
+            </div>
+            <div class="logout">
+                <span><?php echo $login_session; ?></span></br>
+                <h3><a href="logout.php"> Kijelentkezés</a></h3>
             </div>
         </div>
         <div class="container-fluid questionBox">

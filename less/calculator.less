@@ -30,17 +30,7 @@ header{
       font-size: 30px;
     }
   }
-  h3{
-    text-align: right;
-    font-size: 16px;
-    a{
-      color: #949494;
-      &:hover, &:focus{
-        text-decoration: none;
-        color: #949494;
-      }
-    }
-  }
+  
 }
 .questionBox{
   padding: 45px 0;
@@ -255,6 +245,24 @@ p.final-border{
   text-align: center;
   top: 0;
   z-index: 2;
+  .logout{
+    background-color: rgba(148,148,148,0.75);
+    span{
+      text-transform: capitalize;
+    }
+    h3{
+      font-size: 16px;
+      a{
+        //color: #949494;
+        color: red;
+        &:hover, &:focus{
+          text-decoration: none;
+          //color: #949494;
+          color: red;
+        }
+      }
+    }
+  }
   .left-box-btn{
     position: relative;
     cursor: pointer;
@@ -290,6 +298,7 @@ p.final-border{
     }
   }
   .fix-hide{
+    display: none;
     opacity: 0;
     visibility: hidden;
     background-color: rgba(0, 0, 0, 0.40);
@@ -299,6 +308,7 @@ p.final-border{
     transition: all 1s;
   }
   .fix-hide.show{
+    display: block;
     visibility: visible;
     opacity: 1;
     z-index: 2;
