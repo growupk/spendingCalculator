@@ -246,19 +246,27 @@ p.final-border{
   top: 0;
   z-index: 2;
   .logout{
-    background-color: rgba(148,148,148,0.75);
+    padding-bottom: 1px;
+    background-color: rgb(254, 251, 239);
     span{
+      color: #969696;
+      line-height: 30px;
+      font-weight: bold;
       text-transform: capitalize;
+      i{
+        padding-right: 5px;
+      }
     }
     h3{
       font-size: 16px;
+      padding-top: 5px;
+      border-top: 2px solid #969696;
       a{
-        //color: #949494;
-        color: red;
+        color: #959595;
+        transition: color 0.5s;
         &:hover, &:focus{
           text-decoration: none;
-          //color: #949494;
-          color: red;
+          color: #de615e;
         }
       }
     }

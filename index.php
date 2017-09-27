@@ -50,8 +50,8 @@
                 </form>
             </div>
             <div class="logout">
-                <span><?php echo $login_session; ?></span></br>
-                <h3><a href="logout.php"> Kijelentkezés</a></h3>
+                <span><i class="fa fa-user" aria-hidden="true"></i><?php echo $login_session; ?></span></br>
+                <h3><a href="logout.php"> Kijelentkezés <i class="fa fa-sign-out" aria-hidden="true"></i></a></h3>
             </div>
         </div>
         <div class="container-fluid questionBox">
