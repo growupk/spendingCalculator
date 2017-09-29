@@ -94,6 +94,13 @@
     }
 
     //month filer
+    function monthFilterAllCost($month, $con){
+        $actMonthAllCost = mysqli_query($con,"SELECT *, sum(to_spend_price) FROM cost WHERE MONTHNAME(buy_date) = '$month'"); //SELECT *, sum(to_spend_price) FROM cost WHERE MONTHNAME(buy_date) = 'august'
+        $row = mysqli_fetch_array($actMonthAllCost);
+        $actMonthAllCost = (int)$row['sum(to_spend_price)'];
+        return $actMonthAllCost;
+    }
+    
     function monthFilter($select, $from, $month, $con){
         $results = mysqli_query($con,"SELECT $select FROM $from WHERE MONTHNAME(buy_date) = '$month'"); // SELECT * FROM table WHERE MONTHNAME(date_column) = 'march'
         return $results;

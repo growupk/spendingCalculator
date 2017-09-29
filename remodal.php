@@ -53,6 +53,10 @@
             }
         ?>
         <div class="row month-select justify-content-end">
+            <?php
+                $actMonthAllCost = monthFilterAllCost($actMonth, $con);
+            ?>
+            <h5 class="act-month-all-cost">Teljes kiadás: <?= number_format($actMonthAllCost); ?> Ft</h5>
             <form method="post" action="#modal" name="filterForm">
                 <select name="monthfilter" id="month" onchange="filterForm.submit();">
                     <?php
