@@ -1,5 +1,14 @@
 <?php
-    $results = dataResults('*', 'cost', $con);
+    $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+    $allMonthHun = ['Január','Február','Március','Április','Május','Június','Július','Augusztus','Szeptember','Október','November','December'];
+    setlocale(LC_ALL, 'hu_HU.ISO8859-2');
+    $actMonth = date('F');
+
+    if(isset($_POST['monthfilter'])){
+        $actMonth = $_POST['monthfilter'];
+    }
+
+    $results = monthFilter('*', 'cost', $actMonth, $con);
     $costsTypeAll = [];
     foreach($results as $result){
         array_push($costsTypeAll,$result['costs_type']);
@@ -16,7 +25,6 @@
 ?>
 <div class="remodal" data-remodal-id="modal">
     <?php
-        
         for($i=0; $i<$costsTypeSize; $i++){
             switch ($costsTypeFilter[$i]) {
                 case "Étel":
@@ -43,14 +51,14 @@
     ?>
     <div class="container">
         <?php
-            $allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+            /*$allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
             $allMonthHun = ['Január','Február','Március','Április','Május','Június','Július','Augusztus','Szeptember','Október','November','December'];
             setlocale(LC_ALL, 'hu_HU.ISO8859-2');
             $actMonth = date('F');
 
             if(isset($_POST['monthfilter'])){
                 $actMonth = $_POST['monthfilter'];
-            }
+            }*/
         ?>
         <div class="row month-select justify-content-end">
             <?php
@@ -71,35 +79,35 @@
         </div>
         <ul class="nav nav-tabs">
             <?php 
-                if(!empty($food)){
+                if(!empty($food) && $food == 'Étel'){
                 ?>
                     <li class="nav-item"><a class="nav-link <?php echo (!empty($food)) ? 'active' : '' ;?>" data-toggle="tab" href="#food"><?php echo $food; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
-                if(!empty($fuel)){
+                if(!empty($fuel) && $fuel == 'Üzemanyag'){
                 ?>
                     <li class="nav-item"><a class="nav-link <?php echo (empty($food) && !empty($fuel)) ? 'active' : '' ;?>" data-toggle="tab" href="#fuel"><?php echo $fuel; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
-                if(!empty($apartment)){
+                if(!empty($apartment) && $apartment == 'Albérlet/Rezsi'){
                 ?>
                     <li class="nav-item"><a class="nav-link <?php echo (empty($food) && empty($fuel) && !empty($apartment)) ? 'active' : '' ;?>" data-toggle="tab" href="#apartment"><?php echo $apartment; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
-                if(!empty($luxx)){
+                if(!empty($luxx) && $luxx == 'Luxus'){
                 ?>
                     <li class="nav-item"><a class="nav-link <?php echo (empty($food) && empty($fuel) && empty($apartment) && !empty($luxx)) ? 'active' : '' ;?>" data-toggle="tab" href="#luxx"><?php echo $luxx; ?></a></li>
                 <?php
                 }
             ?>
             <?php 
-                if(!empty($other)){
+                if(!empty($other) && $other == 'Egyéb/Nem várt'){
                 ?>
                     <li class="nav-item"><a class="nav-link <?php echo (empty($food) && empty($fuel) && empty($apartment) && empty($luxx) && !empty($other)) ? 'active' : '' ;?>" data-toggle="tab" href="#other"><?php echo $other; ?></a></li>
                 <?php

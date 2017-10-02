@@ -142,11 +142,11 @@
                                     $otherIndex++;
                                 }
                             }
-                        if(!empty($food) || !empty($fuel) || !empty($apartment) || !empty($luxx) || !empty($other)){
+                        //if(!empty($food) || !empty($fuel) || !empty($apartment) || !empty($luxx) || !empty($other)){
                         ?>
                         <div class="final-border-box">
                         <?php
-                        }
+                        //}
                         if(!empty($food)) {
                             ?>
                             
@@ -198,13 +198,13 @@
                             </p>
                             <?php
                         }
-                        if(!empty($food) || !empty($fuel) || !empty($apartment) || !empty($luxx) || !empty($other)){
+                        //if(!empty($food) || !empty($fuel) || !empty($apartment) || !empty($luxx) || !empty($other)){
                         ?>
                             <a data-remodal-target="modal">
                                 <input type="button" value="Részletek" class="detailsBtn">
                             </a>
                         </div>
-                        <?php } ?>
+                        <?php //} ?>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 reFirst table-container">
@@ -273,80 +273,81 @@
                         //Cake diagramm
                         $(document).ready(function(){
                             var allSpended = '<?php echo $subtotal; ?>'
+                            if(allSpended != 0){
+                                var release_type = $('.data-price').map(function() {
+                                    return $(this);
+                                }).get();
 
-                            var release_type = $('.data-price').map(function() {
-                                return $(this);
-                            }).get();
-
-                            var foodPrices = 0
-                            var fuelPrices = 0
-                            var housePrices = 0
-                            var luxPrices = 0
-                            var somePrices = 0
+                                var foodPrices = 0
+                                var fuelPrices = 0
+                                var housePrices = 0
+                                var luxPrices = 0
+                                var somePrices = 0
 
 
-                            for(var i=0; i<release_type.length; i++){
-                                if(release_type[i].text() == 'Étel'){
-                                    foodPrices += parseInt(release_type[i].attr('data-price'))
+                                for(var i=0; i<release_type.length; i++){
+                                    if(release_type[i].text() == 'Étel'){
+                                        foodPrices += parseInt(release_type[i].attr('data-price'))
+                                    }
+                                    if(release_type[i].text() == 'Üzemanyag'){
+                                        fuelPrices += parseInt(release_type[i].attr('data-price'))
+                                    }
+                                    if(release_type[i].text() == 'Albérlet/Rezsi'){
+                                        housePrices += parseInt(release_type[i].attr('data-price'))
+                                    }
+                                    if(release_type[i].text() == 'Luxus'){
+                                        luxPrices += parseInt(release_type[i].attr('data-price'))
+                                    }
+                                    if(release_type[i].text() == 'Egyéb/Nem várt'){
+                                        somePrices += parseInt(release_type[i].attr('data-price'))
+                                    }
                                 }
-                                if(release_type[i].text() == 'Üzemanyag'){
-                                    fuelPrices += parseInt(release_type[i].attr('data-price'))
-                                }
-                                if(release_type[i].text() == 'Albérlet/Rezsi'){
-                                    housePrices += parseInt(release_type[i].attr('data-price'))
-                                }
-                                if(release_type[i].text() == 'Luxus'){
-                                    luxPrices += parseInt(release_type[i].attr('data-price'))
-                                }
-                                if(release_type[i].text() == 'Egyéb/Nem várt'){
-                                    somePrices += parseInt(release_type[i].attr('data-price'))
-                                }
+                                $('.foodfull').text(foodPrices + ' Ft')
+                                $('.fuelfull').text(fuelPrices + ' Ft')
+                                $('.apartmentfull').text(housePrices + ' Ft')
+                                $('.luxfull').text(luxPrices + ' Ft')
+                                $('.otherfull').text(somePrices + ' Ft')
+                                var morePriceArray = []
+                                var foodPercent = foodPrices/allSpended*100
+                                var fuelPercent = fuelPrices/allSpended*100
+                                var housePercent = housePrices/allSpended*100
+                                var luxPercent = luxPrices/allSpended*100
+                                var somePercent = somePrices/allSpended*100
+
+                                morePriceArray.push(foodPercent,fuelPercent,housePercent,luxPercent,somePercent)
+                                var morePrice = Math.max.apply( Math, morePrice )
+
+                                var chart = new CanvasJS.Chart("chartContainer",
+                                    {
+                                        title:{
+                                            text: "Havi kiadások eddigi alakulása"
+                                        },
+                                        backgroundColor: "transparent",
+                                        exportFileName: "Pie Chart",
+                                        exportEnabled: true,
+                                        animationEnabled: true,
+                                        legend:{
+                                            verticalAlign: "bottom",
+                                            horizontalAlign: "center"
+                                        },
+                                        data: [
+                                            {
+                                                type: "pie",
+                                                showInLegend: false,
+                                                toolTipContent: "{name}: <strong>{y}%</strong>",
+                                                indexLabel: "{name} {y}%",
+                                                dataPoints: [
+                                                    {  y: foodPercent.toFixed(2), name: "Étel", exploded: true},
+                                                    {  y: fuelPercent.toFixed(2), name: "Üzemanyag"},
+                                                    {  y: housePercent.toFixed(2), name: "Albérlet/Rezsi"},
+                                                    {  y: luxPercent.toFixed(2), name: "Luxus"},
+                                                    {  y: somePercent.toFixed(2),  name: "Egyéb/Nem várt"}
+                                                ]
+                                            }
+                                        ]
+                                    });
+                                chart.render();
                             }
-                            $('.foodfull').text(foodPrices + ' Ft')
-                            $('.fuelfull').text(fuelPrices + ' Ft')
-                            $('.apartmentfull').text(housePrices + ' Ft')
-                            $('.luxfull').text(luxPrices + ' Ft')
-                            $('.otherfull').text(somePrices + ' Ft')
-                            var morePriceArray = []
-                            var foodPercent = foodPrices/allSpended*100
-                            var fuelPercent = fuelPrices/allSpended*100
-                            var housePercent = housePrices/allSpended*100
-                            var luxPercent = luxPrices/allSpended*100
-                            var somePercent = somePrices/allSpended*100
-
-                            morePriceArray.push(foodPercent,fuelPercent,housePercent,luxPercent,somePercent)
-                            var morePrice = Math.max.apply( Math, morePrice )
-
-                            var chart = new CanvasJS.Chart("chartContainer",
-                                {
-                                    title:{
-                                        text: "Havi kiadások eddigi alakulása"
-                                    },
-                                    backgroundColor: "transparent",
-                                    exportFileName: "Pie Chart",
-                                    exportEnabled: true,
-                                    animationEnabled: true,
-                                    legend:{
-                                        verticalAlign: "bottom",
-                                        horizontalAlign: "center"
-                                    },
-                                    data: [
-                                        {
-                                            type: "pie",
-                                            showInLegend: false,
-                                            toolTipContent: "{name}: <strong>{y}%</strong>",
-                                            indexLabel: "{name} {y}%",
-                                            dataPoints: [
-                                                {  y: foodPercent.toFixed(2), name: "Étel", exploded: true},
-                                                {  y: fuelPercent.toFixed(2), name: "Üzemanyag"},
-                                                {  y: housePercent.toFixed(2), name: "Albérlet/Rezsi"},
-                                                {  y: luxPercent.toFixed(2), name: "Luxus"},
-                                                {  y: somePercent.toFixed(2),  name: "Egyéb/Nem várt"}
-                                            ]
-                                        }
-                                    ]
-                                });
-                            chart.render();
                         })
                     </script>
                     </div>
