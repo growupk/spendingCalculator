@@ -50,16 +50,6 @@
         }
     ?>
     <div class="container">
-        <?php
-            /*$allMonth = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-            $allMonthHun = ['Január','Február','Március','Április','Május','Június','Július','Augusztus','Szeptember','Október','November','December'];
-            setlocale(LC_ALL, 'hu_HU.ISO8859-2');
-            $actMonth = date('F');
-
-            if(isset($_POST['monthfilter'])){
-                $actMonth = $_POST['monthfilter'];
-            }*/
-        ?>
         <div class="row month-select justify-content-end">
             <?php
                 $actMonthAllCost = monthFilterAllCost($actMonth, $con);

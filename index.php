@@ -14,8 +14,6 @@
     </div>
     <div class="remodal-bg">
         <header>
-            <!--<h3><?php echo $login_session; ?><a href = "logout.php"> Kijelentkezés</a></h3>-->
-            <!--<h1>Havi Költségkalkulátor</h1>-->
         </header>
         <div class="total-cash">
             <div class="left-box-btn">
@@ -49,8 +47,11 @@
                     <input type="submit" class="totalSendBtn" value="Tárca felülírás">
                 </form>
             </div>
-            <div class="logout">
-                <span><i class="fa fa-user" aria-hidden="true"></i><?php echo $login_session; ?></span></br>
+            <div class="side-menu">
+                <span id="user-name"><i class="fa fa-user" aria-hidden="true"></i><?php echo $login_session; ?></span>
+                <div class="sub-menu">
+                    <a href="chart-page.php"><span><i class="fa fa-area-chart" aria-hidden="true"></i>Statisztika</span></a>
+                </div>
                 <h3><a href="logout.php"> Kijelentkezés <i class="fa fa-sign-out" aria-hidden="true"></i></a></h3>
             </div>
         </div>
